@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #0088cc;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  flex-shrink: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.carousel {
+  width: 100%;
+  margin: 0 auto;            /* centraliza horizontalmente */
+  overflow: hidden;
+  height: 300px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.carousel img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+  display: none;
+}
+
+.carousel img:first-child {
+  display: block;
+}
+
+.intro {
+  text-align: center;
+  padding: 2rem;
+  flex: 1;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card h3 {
+  padding: 10px;
+  text-align: center;
+}
+
+.country-info {
+  text-align: center;
+  padding: 0.2rem 2rem 2rem 2rem; /* 1rem topo, 2rem lados, 2rem fundo */
+  flex: 1;
+  margin-top: 0; /* remove espaço extra acima */
+}
+
+.country-info h2 {
+  margin-top: 0;       /* mantém o h2 próximo do header */
+  margin-bottom: 1rem; /* desce o parágrafo 1rem = 16px */
+}
+
+
+.images-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.images-container img {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+footer {
+  background: #0088cc;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+/* Espaço extra para que o conteúdo não fique coberto pelo footer */
+body > *:not(footer) {
+  margin-bottom: 60px;
+}

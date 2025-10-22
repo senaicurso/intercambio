@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intercâmbio e Globalização</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Intercâmbio e Globalização</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="paises.html">Países</a></li>
+        <li><a href="#">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Carrossel simples -->
+  <div class="carousel">
+    <div class="slides">
+      <img src="images/img4.png" alt="Cultura Mundial">
+      <img src="images/img5.jpg" alt="Estudos e Intercâmbio">
+      <img src="images/img6.jpg" alt="Lugares Famosos">
+    </div>
+  </div>
+
+  <section class="intro">
+    <h2>Descubra a cultura de diferentes países</h2>
+    <p>Este projeto tem como objetivo ampliar o conhecimento sobre culturas ao redor do mundo, incentivando a pesquisa, o aprendizado de línguas e o uso de recursos digitais.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
+  </footer>
+
+  <script>
+    let index = 0;
+    const slides = document.querySelectorAll('.carousel img');
+    setInterval(() => {
+      slides[index].style.display = 'none';
+      index = (index + 1) % slides.length;
+      slides[index].style.display = 'block';
+    }, 3000);
+  </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Austrália - Intercâmbio e Globalização</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Austrália</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="paises.html">Países</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #0088cc;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  flex-shrink: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  height: 300px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.carousel img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: none;
+}
+
+.carousel img:first-child {
+  display: block;
+}
+
+.intro {
+  text-align: center;
+  padding: 2rem;
+  flex: 1;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card h3 {
+  padding: 10px;
+  text-align: center;
+}
+
+.country-info {
+  text-align: center;
+  padding: 2rem;
+  flex: 1;
+}
+
+.country-info h2 {
+  margin-bottom: 0.05rem;
+  font-size: 2rem;
+  color: #006c9c;
+}
+
+.country-info h1 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: #006c9c;
+}
+
+.country-info h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.country-info h4 {
+  margin-top: 0.0rem;
+  margin-bottom: 0.0rem;
+  color: #006c9c;
+  left: 20px;
+}
+
+.country-info p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.images-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.images-container img {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.map-section {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.map-section iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin: 1rem auto;
+  display: block;
+}
+
+footer {
+  background: #0088cc;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.info-box {
+  max-width: 700px;
+  margin: 20px auto 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: #333;
+  text-align: left;
+}
+
+.images-container img {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.images-container img:hover {
+  transform: scale(1.05);
+}
+
+<!--  -->
+   .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .tooltip img {
+      vertical-align: middle;
+    }
+
+.tooltip-text {
+      visibility: hidden;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 8px;
+      border-radius: 2px;
+    }
+</style>
+
+  <section class="country-info">
+    <h2>Bem-vindo(a) a Austrália🐨</h2>
+
+  <section class="country-info">
+    <h3>Seu próximo destino de descobertas!🛫<br>
+        Estudos, experiências únicas e diversão garantida em um dos países mais incríveis do mundo! </h3>
+
+  <section class="map-section">
+    <h1>📍 Onde fica a Austrália?</h1>
+
+    <!-- Mapa incorporado do Google Maps -->
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10410888.217710316!2d113.3389533641971!3d-25.27439816549485!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b2b1ff982ad3c2d%3A0x5045675218ce6e0!2sAustr%C3%A1lia!5e0!3m2!1spt-BR!2sau!4v1718899990000" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+	
+    <div class="images-container">
+        <img src="images/culture.jpg" alt="Cultura Australiana" onclick="showInfo('info-cultura')" title="🎨 Povo aborígene: representa a cultura indígena da Austrália, com tradições, pinturas corporais e instrumentos típicos." style="cursor:pointer;">
+        <img src="images/australia.jpg" alt="Austrália" onclick="showInfo('info-idioma')" title="🦘 Cangurus na praia australiana: símbolo da fauna do país, mostrando o contato próximo entre natureza e pessoas." style="cursor:pointer;">
+        <img src="images/sydney-australia.jpg" alt="Sydney" onclick="showInfo('info-tradicoes')" title="🌆 Sydney ao entardecer: vista da famosa Baía de Sydney, com a ponte e a Ópera, ícones da modernidade australiana." style="cursor:pointer;">
+        <img src="images/culturas.jpg" alt="Culturas" onclick="showInfo('info-curiosidades')" title="👩 Criança e canguru: mostra a convivência harmoniosa entre seres humanos e animais no ambiente australiano" style="cursor:pointer;">
+        <img src="images/culinária.webp" alt="Culinária" onclick="showInfo('info-culinária')" title="🍓 Pavlova australiana: sobremesa leve e crocante feita de merengue, chantilly e frutas frescas, símbolo da culinária da Austrália e da Nova Zelândia." style="cursor:pointer;">
+    </div>
+
+    <div id="info-cultura" class="info-box" style="display:none;">
+        <h3>CULTURA</h3>
+        <p>A cultura da Austrália mistura a tradição dos povos aborígenes com influências britânicas e multiculturais. Os aborígenes têm forte ligação espiritual com a natureza, expressa no "Dreamtime", na arte pontilhista e no som do didgeridoo.A colonização britânica e a imigração de diversos países trouxeram grande diversidade cultural. Os australianos valorizam um estilo de vida ao ar livre, com churrascos, praias e esportes como rugby e surf. O país também realiza diversos festivais culturais e musicais, como o Vivid Sydney e o Australia Day, que celebram arte, luz, música e identidade nacional.Além disso, a Austrália se destaca em educação, ciência, arte e cinema, enquanto cresce o reconhecimento e respeito pela cultura indígena.<br>
+          🌳🐨A Austrália abriga uma das faunas e floras mais únicas do mundo, resultado de seu isolamento geográfico por milhões de anos. Sua fauna é conhecida por animais emblemáticos como o canguru, o coala, o ornitorrinco e o equidna, além do emu, aves exóticas como o kookaburra e o cacatua, e répteis como crocodilos e diversas espécies de cobras e aranhas. A flora também é bastante diversificada, com destaque para o eucalipto, árvore nativa essencial para os coalas, e a acácia (wattle), flor símbolo nacional. Outras plantas características incluem a banksia e a grevillea, comuns em diferentes ecossistemas como florestas tropicais, savanas e desertos. O país investe fortemente na preservação ambiental, com parques nacionais e projetos de conservação voltados à proteção de suas espécies nativas e habitats naturais.</p>
+    </div>
+
+    <div id="info-idioma" class="info-box" style="display:none;">
+        <h3>IDIOMA</h3>
+        <p>O idioma oficial da Austrália é o inglês, herdado da colonização britânica. No entanto, o país possui um sotaque próprio, conhecido como "Aussie English", e diversas expressões e gírias típicas que fazem parte do cotidiano. Além do inglês, a Austrália é um país multicultural, e muitas línguas são faladas por comunidades imigrantes, como italiano, grego, árabe, chinês e vietnamita. Também existem cerca de 150 línguas indígenas, embora muitas estejam em risco de extinção. O governo tem incentivado a preservação desses idiomas como parte do respeito à cultura aborígene.</p>
+    </div>
+
+    <div id="info-tradicoes" class="info-box" style="display:none;">
+        <h3>TRADIÇÕES</h3>
+        <p>Quer viver a cultura australiana de verdade? Confira as tradições que fazem a Austrália ser única:<br>
+        ✔️ Churrasco ao ar livre com os amigos<br>
+        ✔️ Esportes como estilo de vida<br>
+        ✔️ Celebrações como o Australia Day e Anzac Day<br>
+        ✔️ Cultura indígena milenar com danças e o som do didgeridoo<br>
+        ✔️ Um país multicultural e super acolhedor</p>
+    </div>
+
+    <div id="info-curiosidades" class="info-box" style="display:none;">
+        <H3>CURIOSIDADES</H3>
+        <p> 🦘 Mais cangurus do que pessoas: A população de cangurus é quase o dobro da população humana da Austrália!<br>
+            🌏 Maior ilha e menor continente: A Austrália é o único país que ocupa todo um continente.<br>
+            🔥 Grande Barreira de Coral: Localizada na costa nordeste, é o maior recife de coral do planeta e pode 
+            até ser visto do espaço!<br>
+            🏖️ Praias infinitas: Existem mais de 10 mil praias — se você visitasse uma por dia, levaria quase 30 anos para conhecer todas.<br>
+            🌇 Cidades vibrantes: Sydney, Melbourne e Brisbane estão entre as cidades com melhor qualidade de vida do mundo.<br>
+            📜Cultura indígena milenar: Os povos aborígenes vivem na Austrália há mais de 60 mil anos, sendo uma das culturas mais antigas do planeta.<br>
+            🐍 Lar de muitos animais perigosos: O país abriga algumas das cobras, aranhas e águas-vivas mais venenosas do mundo.<br></p>
+    </div>
+
+    <div id="info-culinária" class="info-box" style="display:none;">
+        <H3>CULINÁRIA</H3>
+        <p>🦘Bush food: ingredientes nativos usados por aborígenes (canguru, emu, frutas nativas).<br>
+           🥩Churrasco ("barbie"): muito popular com carnes variadas.<br>
+           🍖Carnes exóticas: canguru, crocodilo, emu (também usadas na gastronomia moderna).<br>
+           🥧Influência britânica: torta de carne (meat pie), fish and chips, sausage rolls.<br>
+           🍰Doces típicos: pavlova, lamington, Anzac biscuits.<br>
+           🥪Vegemite: pasta salgada típica, passada no pão.<br>
+           🍪Snacks famosos: Tim Tam (biscoito de chocolate).<br>
+           🍘Culinária multicultural: forte presença de comida asiática e mediterrânea.<br>
+           🍸Bebidas: vinhos australianos, cervejas locais e flat white (tipo de café).<br></p>
+    </div><br>
+<br>
+<!-- Intercambio/terminar-->
+ <section class="country-info">
+    <h2>INTERCÂMBIO?</h2>
+      <h4>Leia mais sobre</h4>
+  
+    <div id="info-intercambio" class="info-box">
+        <p>🛫 1. Requisitos principais<br>
+        Estar matriculado em uma instituição de ensino (geralmente no ensino superior).<br>
+        Ter bom desempenho acadêmico.<br>
+        Comprovar proficiência em inglês (IELTS, TOEFL ou equivalente).<br>
+        Receber a “Confirmation of Enrolment” (CoE) da universidade australiana.<br></p>
+        </div>
+
+    <div id="info-intercambio" class="info-box">
+        <p> 🩺 2. Visto e seguro saúde<br>
+        É necessário o visto de estudante (Subclass 500).<br>
+        Contratar o Overseas Student Health Cover (OSHC) — seguro saúde obrigatório.<br>
+        Verificar possíveis exigências de vacinas e exames médicos.<br></p>
+    </div>
+
+    <div id="info-intercambio" class="info-box">
+        <p>
+        💰 3. Custos e orçamento<br>
+        Custo de vida médio: cerca de AU$ 24.500/ano (sem contar mensalidades). - R$85.750,00<br>
+        Gastos principais: moradia, alimentação, transporte e materiais.<br>
+        Cidades grandes como Sydney e Melbourne são mais caras.<br></p>
+    </div>
+    
+
+    <div id="info-intercambio" class="info-box">
+        <p>
+        🏠 4. Moradia<br>
+        Opções:<br>
+        Acomodação estudantil (residência universitária ou prédios para estudantes).<br>
+        Homestay (com família local).<br>
+        Aluguel compartilhado (dividir casa/apartamento com outros estudantes).<br>
+        Geralmente é exigido depósito (bond) de 4 semanas de aluguel.<br>
+        Verifique se contas (água, luz, internet) estão incluídas.<br></p>
+    </div>
+    
+
+    <div id="info-intercambio" class="info-box">
+        <p>
+        🚍 5. Transporte e vida prática<br>
+        Use transporte público com passes estudantis.<br>
+        Abra uma conta bancária australiana e adquira um chip local de celular.<br>
+        Planeje o trajeto entre moradia e campus antes de escolher onde morar.<br></p>
+    </div>
+    
+
+    <div id="info-intercambio" class="info-box">
+        <p>
+        👩‍💼 6. Trabalho e estudos<br>
+        O visto de estudante permite trabalhar meio período (com limite de horas).<br>
+        Verifique se as disciplinas cursadas na Austrália valem créditos na sua universidade brasileira.<br></p>
+    </div>
+    
+
+    <div id="info-intercambio" class="info-box">
+        <p>
+        ✅ 7. Checklist antes da viagem<br>
+        Carta de aceitação + CoE.<br>
+        Visto aprovado e OSHC contratado.<br>
+        Passagem comprada e moradia temporária reservada.<br>
+        Documentos (passaporte, histórico, vacinas) organizados.<br>
+        Orçamento planejado<br></p>
+    </div>
+	
+  </section>
+
+  <section class="country-info">
+    <h2>Troque sua rotina por aventuras internacionais. Venha fazer intercâmbio!!🧳</h2>
+  </section>
+
+  <footer>
+    <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
+  </footer>
+
+ <script>
+  function showInfo(id) {
+    // Esconde todas as infos
+    const infos = document.querySelectorAll('.info-box');
+    infos.forEach(box => box.style.display = 'none');
+
+    // Mostra só a info do id clicado
+    const info = document.getElementById(id);
+    if (info) {
+      info.style.display = 'block';
+      // Opcional: rola a tela até o conteúdo
+      info.scrollIntoView({behavior: "smooth"});
+    }
+  }
+
+</script>
+</body>
+</html>

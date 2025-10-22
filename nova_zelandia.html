@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nova Zelândia - Intercâmbio e Globalização</title>
+  <style>
+    * {  
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #0088cc;
+      color: white;
+      text-align: center;
+      padding: 2rem; /* mais espaço no topo */
+      flex-shrink: 0;
+    }
+
+    header h1 {
+      text-align: center;
+      margin-bottom: 0;
+      font-size: 2.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+      text-align: center; /* centraliza o menu */
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .images-container {
+      display: flex;
+      flex-direction: column; /* 1 imagem embaixo da outra */
+      align-items: center;    /* centraliza as imagens */
+      gap: 40px; /* mais espaço entre as imagens */
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .images-container img {
+      width: 500px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .images-container img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 500px;
+      animation: aparecer 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    @keyframes aparecer {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    .close {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      color: #666;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: red;
+    }
+
+    footer {
+      background: #0088cc;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+    }
+
+    /* Espaço extra para que o conteúdo não fique coberto pelo footer */
+    body > *:not(footer) {
+      margin-bottom: 60px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Nova Zelândia</h1>
+    <img src="https://flagcdn.com/w40/nz.png"
+       alt="Bandeira da Nova Zelândia" 
+       style="width: 30px; height: 20px; vertical-align: middle;">
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="paises.html">Países</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="country-info">
+    <h2 style="text-align:center; margin-top:20px;">Clique nas imagens abaixo!</h2>
+
+    <div class="images-container">
+      <a href="https://www.google.com/maps/place/Nova+Zel%C3%A2ndia/@-40.9248354,175.0039087,5z/data=!3m1!4b1!4m6!3m5!1s0x6d2c200e17779687:0xb1d618e2756a4733!8m2!3d-40.900557!4d174.885971!16zL20vMGN0d19i?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">
+        <h2>Localização</h2>
+      </a>
+      <img src="images/images0.jpg" alt="Imagem 8" onclick="abrirModal('modal1')">
+      <h2>Culinária</h2>
+      <img src="./images/images7.jpg" alt="Imagem 7" onclick="abrirModal('modal2')">
+      <h2>Cultura</h2>
+      <img src="./images/images2.jpg" alt="Imagem 9" onclick="abrirModal('modal3')">
+      <h2>Economia</h2>
+      <img src="./images/images5.jpg" alt="Imagem 10" onclick="abrirModal('modal4')">
+      <h2>Curiosidades</h2>
+      <img src="./images/images10.jpg" alt="Imagem 10" onclick="abrirModal('modal5')">
+    </div>
+  </section>
+
+  <!-- Modais -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal('modal1')">&times;</span>
+      <h3>Localização</h3>
+      <p>A Nova Zelândia fica na Oceania, ao sudeste da Austrália, no oceano Pacífico Sul. É formada por duas ilhas principais, a Ilha Norte e a Ilha Sul, e várias ilhas menores.</p>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal('modal2')">&times;</span>
+      <h3>Culinária</h3>
+      <p>A culinária da Nova Zelândia mistura tradições maori e britânicas, com destaque para hangi (método tradicional de cozimento dos maori, são colocados em cestos e cozidos lentamente em um forno subterrâneo feito com pedras aquecidas. Isso dá aos pratos um sabor defumado e terroso característico.), carnes, laticínios e frutos do mar.</p>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal('modal3')">&times;</span>
+      <h3>Cultura</h3>
+      <p>A cultura da Nova Zelândia combina tradições maori e europeias, valorizando a natureza, o respeito à comunidade e o orgulho nacional. O rúgbi é o esporte mais popular, com a famosa haka antes dos jogos. A arte, a música e o cinema (como os filmes de O Senhor dos Anéis) também são partes importantes da identidade cultural do país.</p>
+    </div>
+  </div>
+
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal('modal4')">&times;</span>
+      <h3>Economia</h3>
+      <p>baseada principalmente na agropecuária, no turismo e nas exportações. O país é um grande produtor de laticínios, carne e vinho, além de investir em tecnologia e energia sustentável.</p>
+    </div>
+  </div>
+
+  <div id="modal5" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal('modal5')">&times;</span>
+      <h3>Curiosidades</h3>
+      <p>há mais ovelhas do que pessoas na Nova Zelândia, cerca de 5 ovelhas por habitante.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
+  </footer>
+
+  <script>
+    function abrirModal(idModal) {
+      document.getElementById(idModal).style.display = 'block';
+    }
+
+    function fecharModal(idModal) {
+      document.getElementById(idModal).style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modais = document.querySelectorAll('.modal');
+      modais.forEach(modal => {
+        if(event.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
