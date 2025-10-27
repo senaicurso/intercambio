@@ -65,13 +65,19 @@ nav ul li a:hover {
 
 .intro {
   text-align: center;
+  padding: 0.2rem;
+  flex: 1;
+}
+
+.intro2 {
+  text-align: center;
   padding: 2rem;
   flex: 1;
 }
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
@@ -145,4 +151,69 @@ footer {
 /* Espaço extra para que o conteúdo não fique coberto pelo footer */
 body > *:not(footer) {
   margin-bottom: 60px;
+}
+
+
+/* Ajuste do título principal da página inicial */
+.intro {
+  text-align: center;
+  padding: 0;
+  margin: -10px 0 0 0; /* puxa o bloco 10px pra cima */
+}
+
+/* Ajuste específico do h2 */
+.intro h2 {
+  margin-top: 0;        /* elimina margem automática */
+  margin-bottom: 0.8rem; /* pequeno espaço até o carrossel */
+}
+
+/* Aproxima o carrossel do título */
+.carousel {
+  margin-top: 0.5rem;   /* espaço mínimo acima do carrossel */
+}
+
+/* ===== Ajuste do espaçamento da página inicial ===== */
+.intro {
+  text-align: center;
+  padding: 0;         /* remove espaçamento interno */
+  margin-top: 0;      /* elimina espaço acima */
+}
+
+.intro h2 {
+  margin: 0.5rem 0;   /* pequeno espaço antes e depois */
+}
+
+.carousel {
+  margin-top: 0.5rem; /* aproxima o carrossel do título */
+}
+
+/* Ajuste fino da seção de introdução */
+.intro {
+  text-align: center;
+  padding: 0;           /* remove espaçamento interno */
+  margin-top: -1.8rem;  /* puxa o h2 para mais perto do header */
+}
+
+.intro h2 {
+  margin: 0.3rem 0 0.8rem 0; /* espaço pequeno antes e depois do texto */
+  font-size: 1.6rem;          /* mantém boa leitura */
+}
+
+.carousel {
+  margin-top: 0; /* encosta o carrossel no título sem sobrepor */
+}
+
+.countries-section h2 {
+  margin: 0.5rem 0;        /* remove espaço excessivo acima/abaixo */
+  font-size: 1.8rem;       /* destaque pro título */
+  text-align: center;
+  margin-top: -1.5rem;  /* puxa o h2 para mais perto do header */
+}
+
+.countries-section p {
+  /*max-width: 700px;        /* limita largura para boa leitura */
+  margin: 0.8rem auto 2rem auto; /* centraliza e cria espaço entre h2 e os cards */
+  line-height: 1.5;        /* melhora legibilidade */
+  font-size: 1rem;
+  text-align: center;
 }
