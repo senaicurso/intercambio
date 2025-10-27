@@ -87,6 +87,25 @@
                 opacity: 1
             }
         }
+		
+		#backToTop {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #0077cc;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#backToTop:hover {
+  background-color: #005fa3;
+  transform: translateY(-3px);
+}
+		
     </style>
 </head>
 
@@ -176,6 +195,7 @@
 
     <footer>
         <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
+		<!-- <button id="backToTop" title="Voltar ao topo">↑ Topo</button> -->
     </footer>
 
     <script>
@@ -207,6 +227,12 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
+    </script>
+	
+	<script>
+     document.getElementById("backToTop").addEventListener("click", function () {
+     window.scrollTo({ top: 0, behavior: "smooth" });
+     });
     </script>
 </body>
 
