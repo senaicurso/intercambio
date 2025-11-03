@@ -9,8 +9,6 @@
 <body>
   <header>
     <h1>Austrália</h1>
-	<img src="https://flagcdn.com/w40/au.png" alt="Bandeira da Austrália"
-            style="width: 30px; height: 20px; vertical-align: middle;">
     <nav>
       <ul>
         <li><a href="index.html">Início</a></li>
@@ -171,8 +169,8 @@ nav ul li a:hover {
 }
 
 .images-container img {
-  width: 250px;
-  height: 160px;
+  width: 450px;
+  height: 300px;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -243,6 +241,40 @@ footer {
       padding: 5px 8px;
       border-radius: 2px;
     }
+
+/* Botão bonito e centralizado */
+.read-more {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+}
+
+.read-more:hover {
+  background-color: #0056b3;
+}
+
+/* Esconde inicialmente */
+.hidden {
+  display: none;
+}
+
+/* Estilo dos blocos de informação */
+.info-box {
+  background-color: #f5f5f5;
+  border-left: 5px solid #007BFF;
+  margin: 15px auto;
+  padding: 15px 25px;
+  border-radius: 10px;
+  text-align: left; /* texto alinhado à esquerda dentro da caixa */
+  max-width: 600px; /* largura das caixas centralizadas */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 </style>
 
   <section class="country-info">
@@ -264,10 +296,10 @@ footer {
     </iframe>
 	
     <div class="images-container">
-        <img src="images/culture.jpg" alt="Cultura Australiana" onclick="showInfo('info-cultura')" title="🎨 Povo aborígene: representa a cultura indígena da Austrália, com tradições, pinturas corporais e instrumentos típicos." style="cursor:pointer;">
+        <img src="images/Cultura da Austrália.png" alt="Cultura Australiana" onclick="showInfo('info-cultura')" title="🎨 Povo aborígene: representa a cultura indígena da Austrália, com tradições, pinturas corporais e instrumentos típicos." style="cursor:pointer;">
         <img src="images/australia.jpg" alt="Austrália" onclick="showInfo('info-idioma')" title="🦘 Cangurus na praia australiana: símbolo da fauna do país, mostrando o contato próximo entre natureza e pessoas." style="cursor:pointer;">
         <img src="images/sydney-australia.jpg" alt="Sydney" onclick="showInfo('info-tradicoes')" title="🌆 Sydney ao entardecer: vista da famosa Baía de Sydney, com a ponte e a Ópera, ícones da modernidade australiana." style="cursor:pointer;">
-        <img src="images/culturas.jpg" alt="Culturas" onclick="showInfo('info-curiosidades')" title="👩 Criança e canguru: mostra a convivência harmoniosa entre seres humanos e animais no ambiente australiano" style="cursor:pointer;">
+        <img src="images/Canguru não para de abraçar os voluntários que o salvaram na Austrália.jfif" alt="Culturas" onclick="showInfo('info-curiosidades')" title="👩 Criança e canguru: mostra a convivência harmoniosa entre seres humanos e animais no ambiente australiano" style="cursor:pointer;">
         <img src="images/culinária.webp" alt="Culinária" onclick="showInfo('info-culinária')" title="🍓 Pavlova australiana: sobremesa leve e crocante feita de merengue, chantilly e frutas frescas, símbolo da culinária da Austrália e da Nova Zelândia." style="cursor:pointer;">
     </div>
 
@@ -318,75 +350,67 @@ footer {
     </div><br>
 <br>
 <!-- Intercambio/terminar-->
- <section class="country-info">
-    <h2>INTERCÂMBIO?</h2>
-      <h4>Leia mais sobre</h4>
-  
-    <div id="info-intercambio" class="info-box">
-        <p>🛫 1. Requisitos principais<br>
-        Estar matriculado em uma instituição de ensino (geralmente no ensino superior).<br>
-        Ter bom desempenho acadêmico.<br>
-        Comprovar proficiência em inglês (IELTS, TOEFL ou equivalente).<br>
-        Receber a “Confirmation of Enrolment” (CoE) da universidade australiana.<br></p>
-        </div>
+<section class="country-info">
+  <h2>INTERCÂMBIO?</h2>
+  <button id="btn-intercambio" class="read-more">Leia mais sobre</button>
 
-    <div id="info-intercambio" class="info-box">
-        <p> 🩺 2. Visto e seguro saúde<br>
-        É necessário o visto de estudante (Subclass 500).<br>
-        Contratar o Overseas Student Health Cover (OSHC) — seguro saúde obrigatório.<br>
-        Verificar possíveis exigências de vacinas e exames médicos.<br></p>
+  <div id="info-container" class="hidden">
+    <div class="info-box">
+      <p>🛫 1. Requisitos principais<br>
+      Estar matriculado em uma instituição de ensino (geralmente no ensino superior).<br>
+      Ter bom desempenho acadêmico.<br>
+      Comprovar proficiência em inglês (IELTS, TOEFL ou equivalente).<br>
+      Receber a “Confirmation of Enrolment” (CoE) da universidade australiana.<br></p>
     </div>
 
-    <div id="info-intercambio" class="info-box">
-        <p>
-        💰 3. Custos e orçamento<br>
-        Custo de vida médio: cerca de AU$ 24.500/ano (sem contar mensalidades). - R$85.750,00<br>
-        Gastos principais: moradia, alimentação, transporte e materiais.<br>
-        Cidades grandes como Sydney e Melbourne são mais caras.<br></p>
+    <div class="info-box">
+      <p>🩺 2. Visto e seguro saúde<br>
+      É necessário o visto de estudante (Subclass 500).<br>
+      Contratar o Overseas Student Health Cover (OSHC) — seguro saúde obrigatório.<br>
+      Verificar possíveis exigências de vacinas e exames médicos.<br></p>
     </div>
+
+    <div class="info-box">
+      <p>💰 3. Custos e orçamento<br>
+      Custo de vida médio: cerca de AU$ 24.500/ano (sem contar mensalidades). - R$85.750,00<br>
+      Gastos principais: moradia, alimentação, transporte e materiais.<br>
+      Cidades grandes como Sydney e Melbourne são mais caras.<br></p>
+    </div>
+
+    <div class="info-box">
+      <p>🏠 4. Moradia<br>
+      Opções:<br>
+      Acomodação estudantil (residência universitária ou prédios para estudantes).<br>
+      Homestay (com família local).<br>
+      Aluguel compartilhado (dividir casa/apartamento com outros estudantes).<br>
+      Geralmente é exigido depósito (bond) de 4 semanas de aluguel.<br>
+      Verifique se contas (água, luz, internet) estão incluídas.<br></p>
+    </div>
+
+    <div class="info-box">
+      <p>🚍 5. Transporte e vida prática<br>
+      Use transporte público com passes estudantis.<br>
+      Abra uma conta bancária australiana e adquira um chip local de celular.<br>
+      Planeje o trajeto entre moradia e campus antes de escolher onde morar.<br></p>
+    </div>
+
+    <div class="info-box">
+      <p>👩‍💼 6. Trabalho e estudos<br>
+      O visto de estudante permite trabalhar meio período (com limite de horas).<br>
+      Verifique se as disciplinas cursadas na Austrália valem créditos na sua universidade brasileira.<br></p>
+    </div>
+
+    <div class="info-box">
+      <p>✅ 7. Checklist antes da viagem<br>
+      Carta de aceitação + CoE.<br>
+      Visto aprovado e OSHC contratado.<br>
+      Passagem comprada e moradia temporária reservada.<br>
+      Documentos (passaporte, histórico, vacinas) organizados.<br>
+      Orçamento planejado.<br></p>
+    </div>
+  </div>
+</section>
     
-
-    <div id="info-intercambio" class="info-box">
-        <p>
-        🏠 4. Moradia<br>
-        Opções:<br>
-        Acomodação estudantil (residência universitária ou prédios para estudantes).<br>
-        Homestay (com família local).<br>
-        Aluguel compartilhado (dividir casa/apartamento com outros estudantes).<br>
-        Geralmente é exigido depósito (bond) de 4 semanas de aluguel.<br>
-        Verifique se contas (água, luz, internet) estão incluídas.<br></p>
-    </div>
-    
-
-    <div id="info-intercambio" class="info-box">
-        <p>
-        🚍 5. Transporte e vida prática<br>
-        Use transporte público com passes estudantis.<br>
-        Abra uma conta bancária australiana e adquira um chip local de celular.<br>
-        Planeje o trajeto entre moradia e campus antes de escolher onde morar.<br></p>
-    </div>
-    
-
-    <div id="info-intercambio" class="info-box">
-        <p>
-        👩‍💼 6. Trabalho e estudos<br>
-        O visto de estudante permite trabalhar meio período (com limite de horas).<br>
-        Verifique se as disciplinas cursadas na Austrália valem créditos na sua universidade brasileira.<br></p>
-    </div>
-    
-
-    <div id="info-intercambio" class="info-box">
-        <p>
-        ✅ 7. Checklist antes da viagem<br>
-        Carta de aceitação + CoE.<br>
-        Visto aprovado e OSHC contratado.<br>
-        Passagem comprada e moradia temporária reservada.<br>
-        Documentos (passaporte, histórico, vacinas) organizados.<br>
-        Orçamento planejado<br></p>
-    </div>
-	
-  </section>
-
   <section class="country-info">
     <h2>Troque sua rotina por aventuras internacionais. Venha fazer intercâmbio!!🧳</h2>
   </section>
@@ -409,7 +433,21 @@ footer {
       info.scrollIntoView({behavior: "smooth"});
     }
   }
+  
+  const btn = document.getElementById("btn-intercambio");
+  const info = document.getElementById("info-container");
 
+  btn.addEventListener("click", () => {
+    info.classList.toggle("hidden");
+
+    // Alterna o texto do botão
+    if (info.classList.contains("hidden")) {
+      btn.textContent = "Leia mais sobre";
+    } else {
+      btn.textContent = "Ocultar informações";
+    }
+  });
+</script>
 </script>
 </body>
 </html>

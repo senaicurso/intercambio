@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>França - Intercâmbio e Globalização</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            background: linear-gradient(135deg, #00078e 15%, #fff 50%, #900000 100%);
+        }
+
+        /* Botão flutuante */
+        #btnMapa {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #910000, #b60000);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 1000;
+        }
+
+        #btnMapa:hover {
+            transform: scale(1.1);
+            background: linear-gradient(145deg, #cf0000, #7a0000);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* Conteúdo do modal */
+        .modal-content {
+            background-color: #fff;
+            margin: 8% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        /* Botão de fechar */
+        .fechar {
+            color: #333;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        #btnVoltarTopo {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(145deg, #003f91, #00266b);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        #btnVoltarTopo:hover {
+            transform: scale(1.15);
+            background: linear-gradient(145deg, #004ccf, #00347a);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-bottom: 80px;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.903);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(15, 15, 15, 0.499);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .slides {
+            max-height: 250px;
+            min-height: 360px;
+            border-radius: 2%;
+        }
+
+        /* Container de Slides */
+        .slideshow-container {
+            min-width: 595px;
+            max-width: 400px;
+            position: relative;
+            margin: auto;
+        }
+
+        /* Esconde a imagens */
+        .mySlides {
+            display: none;
+        }
+
+        /* Botão de passar e voltar */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Posiciona os botões de proximo e anterior */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        li {
+            right: 0;
+        }
+
+        .comidas {
+            margin-top: 20px;
+            width: 205px;
+            height: 175px;
+            border-radius: 6%;
+        }
+
+        /* Animação */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <h1>França</h1>
+        <img src="https://flagcdn.com/w40/fr.png" alt="Bandeira da França"
+            style="width: 30px; height: 20px; vertical-align: middle;">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="paises.html">Países</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Botão flutuante -->
+    <button id="btnMapa" title="Ver mapa">
+        <i class="material-icons" style="padding-top: 7px;">location_on</i>
+    </button>
+
+    <!-- Modal -->
+    <div id="modalMapa" class="modal">
+        <div class="modal-content">
+            <span class="fechar">&times;</span>
+            <h2>Localização</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10686144.218367325!2d-8.000197982645135!3d45.61864700911236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2zRnJhbsOnYQ!5e1!3m2!1spt-BR!2sbr!4v1761748688167!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <!-- Botão de voltar ao topo -->
+    <button id="btnVoltarTopo" title="Voltar ao topo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
+    <div class="container">
+
+        <section class="country-info">
+            <h2>Bem-vindo(a) a França</h2>
+
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <img src="images/paisagem_2.png" style="width:100%" class="slides">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/paisagem_3.png" style="width:100%" class="slides">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/paisagem_4.png" style="width:100%" class="slides">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/arte_1.png" style="width:100%" class="slides">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/comida_1.png" style="width:100%" class="slides">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/comida_2.png" style="width:100%" class="slides">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+            <p style="padding-bottom: 40px;">A França é conhecida por sua rica cultura, arte, moda e gastronomia.<br> O
+                país
+                é
+                berço de grandes artistas e pensadores, e Paris é considerada o centro cultural e a capital mundial <br>
+                da
+                moda.<br> <br>O idioma oficial é o francês, símbolo de orgulho nacional e uma das línguas mais faladas
+                no
+                mundo.
+            </p>
+
+            <hr>
+
+            
+            <h2 style="padding-top: 40px;">Cultura e Arte 🎨</h2>
+
+            <p style="padding-bottom: 40px; margin: 0, 20px;">A cultura francesa é uma das mais ricas e influentes do mundo, marcada pela
+                valorização da arte, da língua, da gastronomia e do modo de viver.
+                Ela reflete séculos de história, tradição e pensamento, mas também uma constante busca por
+                modernidade e inovação. Os franceses têm um profundo orgulho de sua herança cultural e enxergam a
+                cultura
+                como parte essencial da identidade nacional.</p>
+            <hr>
+
+            <h2 style="padding-top: 40px;"> Herança Histórica 🕰️</h2>
+            <p style="padding-bottom: 15px;">A herança histórica da França é profunda e complexa, marcada por momentos
+                de grandeza, revoluções,
+                conquistas e transformações que moldaram não só o país, mas também o mundo ocidental. A França tem uma
+                história
+                que atravessa mais de dois mil anos, desde os povos gauleses da Antiguidade até a formação de uma das
+                nações mais
+                influentes da Europa moderna. Essa trajetória deixou marcas visíveis em sua arquitetura, instituições,
+                valores e na identidade de seu povo. A França possui uma rica herança histórica e foi berço de
+                importantes
+                movimentos culturais e
+                intelectuais,
+                como:
+            </p>
+            <div style="display: flex; justify-content: center; padding-bottom: 20px;">
+                <ul style="text-align: left; list-style-position: outside;">
+                    <li>Iluminismo</li>
+                    <li>Romantismo</li>
+                    <li>Existencialismo</li>
+                </ul>
+            </div>
+            <br>
+
+            <hr>
+
+            <h2 style="padding-top: 40px;">Culinaria 🥐</h2>
+            <p>A culinária francesa é uma das mais influentes e respeitadas do mundo, conhecida por sua sofisticação,
+                <br>
+                técnicas refinadas e valorização dos ingredientes de qualidade. Pratos como o coq au vin (frango cozido
+                <br>
+                no vinho tinto), o ratatouille (ensopado de legumes típico do sul da França) e o soufflé exemplificam
+                essa <br>
+                sofisticação e cuidado nos preparos. <br> <br>
+
+                Ela combina tradição, com receitas clássicas como o croissant e a baguete, criatividade, presente na
+                <br>
+                alta gastronomia de chefs renomados como Paul Bocuse e Joël Robuchon, e estética, observada na <br>
+                apresentação elegante de pratos e sobremesas como o crème brûlée e o macaron. <br> <br>
+
+                Por tudo isso, a culinária francesa é considerada um verdadeiro pilar da gastronomia ocidental, <br>
+                servindo de base para escolas de cozinha no mundo inteiro, como o famoso Le Cordon Bleu. <br> <br>
+            </p>
+
+            <img src="images/creme brule.png" class="comidas">
+            <img src="images/croaisant.png" class="comidas">
+            <img src="images/macaron.png" class="comidas">
+
+        </section>
+    </div>
+
+
+
+    <footer>
+        <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
+    </footer>
+
+    <script>
+        const btnMapa = document.getElementById("btnMapa");
+        const modal = document.getElementById("modalMapa");
+        const fechar = document.querySelector(".fechar");
+
+        btnMapa.onclick = function () {
+            modal.style.display = "block";
+        }
+
+        fechar.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // Fecha o modal se clicar fora dele
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+        const botao = document.getElementById("btnVoltarTopo");
+
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const alturaPagina = document.body.offsetHeight - window.innerHeight;
+
+            // aparece quando chega perto do fim
+            if (scrollTop > alturaPagina - 200) {
+                botao.style.opacity = "1";
+                botao.style.transform = "scale(1)";
+                botao.style.pointerEvents = "auto";
+            } else {
+                botao.style.opacity = "0";
+                botao.style.transform = "scale(0.8)";
+                botao.style.pointerEvents = "none";
+            }
+        });
+
+        botao.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Função de passr slides
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+</body>
+
+</html>
