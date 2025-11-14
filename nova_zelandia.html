@@ -138,6 +138,71 @@
     body > *:not(footer) {
       margin-bottom: 60px;
     }
+
+    /* ==== BOTÃO DE CONTATO FIXO ==== */
+    #btnContato {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: #0088cc;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background-color 0.2s;
+      z-index: 1100;
+    }
+
+    #btnContato:hover {
+      background-color: #006fa3;
+      transform: scale(1.1);
+    }
+
+    /* ==== CONTAINER DE CONTATO ==== */
+    #contatoContainer {
+      position: fixed;
+      bottom: 150px;
+      right: 20px;
+      width: 280px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      padding: 20px;
+      display: none;
+      animation: slideUp 0.3s ease;
+      z-index: 1100;
+    }
+
+    @keyframes slideUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    #contatoContainer h3 {
+      margin-bottom: 10px;
+      color: #0088cc;
+    }
+
+    #contatoContainer p {
+      margin: 5px 0;
+    }
+
+    #fecharContato {
+      float: right;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #666;
+      cursor: pointer;
+    }
+
+    #fecharContato:hover {
+      color: red;
+    }
   </style>
 </head>
 <body>
@@ -162,18 +227,20 @@
     <h2 style="text-align:center; margin-top:20px;">Clique nas imagens abaixo!</h2>
 
     <div class="images-container">
-      <a href="https://www.google.com/maps/place/Nova+Zel%C3%A2ndia/@-40.9248354,175.0039087,5z/data=!3m1!4b1!4m6!3m5!1s0x6d2c200e17779687:0xb1d618e2756a4733!8m2!3d-40.900557!4d174.885971!16zL20vMGN0d19i?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D">
+      <a href="https://www.google.com/maps/place/Nova+Zel%C3%A2ndia">
         <h2>Localização</h2>
       </a>
-      <img src="images/images0.jpg" alt="Imagem 8" onclick="abrirModal('modal1')">
+      <img src="./image/images0.jpg" alt="Imagem 8" onclick="abrirModal('modal1')">
       <h2>Culinária</h2>
-      <img src="images/images7.jpg" alt="Imagem 7" onclick="abrirModal('modal2')">
+      <img src="./image/image5.jpg" alt="Imagem 7" onclick="abrirModal('modal2')">
       <h2>Cultura</h2>
-      <img src="images/images2.jpg" alt="Imagem 9" onclick="abrirModal('modal3')">
+      <img src="./image/images2.jpg" alt="Imagem 9" onclick="abrirModal('modal3')">
       <h2>Economia</h2>
-      <img src="images/images5.jpg" alt="Imagem 10" onclick="abrirModal('modal4')">
+      <img src="./image/images7.jpg" alt="Imagem 10" onclick="abrirModal('modal4')">
       <h2>Curiosidades</h2>
-      <img src="images/images10.jpg" alt="Imagem 10" onclick="abrirModal('modal5')">
+      <img src="./image/images10.jpg" alt="Imagem 10" onclick="abrirModal('modal5')">
+      <h2>Intercâmbio</h2>
+      <img src="./image/images11.jpg" alt="Imagem 10" onclick="abrirModal('modal6')">
     </div>
   </section>
 
@@ -198,16 +265,14 @@
     <div class="modal-content">
       <span class="close" onclick="fecharModal('modal3')">&times;</span>
       <h3>Cultura</h3>
-      <p>A cultura da Nova Zelândia combina tradições maori e europeias, valorizando a natureza, o respeito à comunidade e o orgulho nacional. O rúgbi é o esporte mais popular, com a famosa haka antes dos jogos. A arte, a música e o cinema (como os filmes de O Senhor dos Anéis) também são partes importantes da identidade cultural do país.</p>
-    </div>
+      <p>A cultura da Nova Zelândia combina tradições maori e europeias, valorizando a natureza, o respeito à comunidade e o orgulho nacional. O rúgbi é o esporte mais popular, com a famosa haka antes dos jogos. A arte, a música e o cinema (como os filmes de O Senhor dos Anéis) também são partes importantes da identidade cultural do país.</p>    </div>
   </div>
 
   <div id="modal4" class="modal">
     <div class="modal-content">
       <span class="close" onclick="fecharModal('modal4')">&times;</span>
       <h3>Economia</h3>
-      <p>baseada principalmente na agropecuária, no turismo e nas exportações. O país é um grande produtor de laticínios, carne e vinho, além de investir em tecnologia e energia sustentável.</p>
-    </div>
+      <p>baseada principalmente na agropecuária, no turismo e nas exportações. O país é um grande produtor de laticínios, carne e vinho, além de investir em tecnologia e energia sustentável.</p>    </div>
   </div>
 
   <div id="modal5" class="modal">
@@ -216,6 +281,27 @@
       <h3>Curiosidades</h3>
       <p>há mais ovelhas do que pessoas na Nova Zelândia, cerca de 5 ovelhas por habitante.</p>
     </div>
+  </div>
+
+   <div id="modal6" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModal('modal6')">&times;</span>
+      <h3>Intercâmbio</h3>
+      <p>Fazer intercâmbio na Nova Zelândia é uma ótima oportunidade para estudar, trabalhar e viver em um dos países mais seguros e acolhedores do mundo. O país oferece cursos de inglês, ensino médio, técnicos e universitários, com a vantagem de permitir que estudantes trabalhem legalmente até 20 horas por semana. Além disso, a qualidade de vida é alta, as paisagens são incríveis e o custo médio mensal gira em torno de 1.500 a 2.700 dólares neozelandeses. Cidades como Auckland, Wellington e Christchurch são as mais procuradas, e o visto de estudante é exigido para cursos com duração superior a 14 semanas.</p>    </div>
+  </div>
+
+  <!-- BOTÃO DE CONTATO -->
+  <button id="btnContato">📞</button>
+
+  <!-- CONTAINER DE CONTATO -->
+  <div id="contatoContainer">
+    <button id="fecharContato">&times;</button>
+    <h3>Contato da Agência</h3>
+    <p><strong>Agência:</strong> NVZL Intercâmbios</p>
+    <p><strong>Email:</strong> NVZL@mundo-intercambio.com</p>
+    <p><strong>Telefone:</strong> +55 (19) 99999-9999</p>
+    <p><strong>Endereço:</strong> Av. das Nações, 123 - Descalvado, SP</p>
+    <p><strong>Instagram:</strong> <a href="#" target="_blank">@NVZL_.intercambios</a></p>
   </div>
 
   <footer>
@@ -239,6 +325,20 @@
         }
       });
     }
+
+    // Botão de contato
+    const btnContato = document.getElementById('btnContato');
+    const contatoContainer = document.getElementById('contatoContainer');
+    const fecharContato = document.getElementById('fecharContato');
+
+    btnContato.addEventListener('click', () => {
+      contatoContainer.style.display = 
+        contatoContainer.style.display === 'block' ? 'none' : 'block';
+    });
+
+    fecharContato.addEventListener('click', () => {
+      contatoContainer.style.display = 'none';
+    });
   </script>
 </body>
 </html>

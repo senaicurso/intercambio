@@ -1,446 +1,707 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CANADÁ🍁 - Intercâmbio e Globalização</title>
-  <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANADÁ🍁 - Intercâmbio e Globalização</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-  font-family: Serif bold italic, sans-serif, sans-serif;
-  background-color: #f4f4f4;
-  color: #070707;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+        /* Fundo em degradê */
+        body {
+            font-family: "Serif", sans-serif;
+            background: linear-gradient(135deg, #a51e1e, #b22222, #ff0000);
+            color: #070707;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+            justify-content: flex-start;
+        }
 
-header {
-  background-color: #730303;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  flex-shrink: 0;
-}
-
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin-top: 10px;
-}
-
-nav ul li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
-
-.carousel {
-  width: 100%;
-  overflow: hidden;
-  height: 300px;
-  position: relative;
-  flex-shrink: 0;
-}
-
-.carousel img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  display: none;
-}
-
-.carousel img:first-child {
-  display: block;
-}
-
-.intro {
-  text-align: center;
-  padding: 2rem;
-  flex: 1;
-}
-
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.card {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  text-decoration: none;
-  color: #333;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.card img {
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.card h3 {
-  padding: 10px;
-  text-align: center;
-}
-
-.country-info {
-  text-align: center;
-  padding: 0.2rem 2rem 2rem 2rem; /* 1rem topo, 2rem lados, 2rem fundo */
-  flex: 1;
-  margin-top: 0; /* remove espaço extra acima */
-}
-
-.country-info h2 {
-  margin-top: 0;       /* mantém o h2 próximo do header */
-  margin-bottom: 1rem; /* desce o parágrafo 1rem = 16px */
+        /* Animação do degradê */
+@keyframes animarDegrade {
+  50% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 
-.images-container {
-  display: grid line;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
+        /* Container branco central */
+        .container-branco {
+            background-color: white;
+            width: 85%;
+            max-width: 1200px;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            padding: 30px;
+        }
 
-.images-container img {
-  width: 450px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-}
+        /* Header fixo com cor sólida */
+        header {
+            background-color: #501616;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            flex-shrink: 0;
+        }
 
-footer {
-  background: #670000;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-}
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 10px;
+        }
 
-/* Espaço extra para que o conteúdo não fique coberto pelo footer */
-body > *:not(footer) {
-  margin-bottom: 60px;
-}
-  </style>
+        nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .carousel {
+            width: 100%;
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: none;
+        }
+
+        .carousel img:first-child {
+            display: block;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card h3 {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .country-info {
+            text-align: center;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .country-info h2 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: #8b0000;
+        }
+
+        .images-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .images-container img {
+            width: 450px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: #670000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            border-top: 2px solid #aa0000;
+        }
+
+        /* Espaço extra para o footer */
+        body>*:not(footer) {
+            margin-bottom: 60px;
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <h1>CANADÁ</h1>
-    <img src="https://flagcdn.com/w40/ca.png"
-       alt="Bandeira do Brasil" 
-       style="width: 30px; height: 20px; vertical-align: middle;">
-    <nav>
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="paises.html">Países</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1>CANADÁ</h1>
+        <img src="https://flagcdn.com/w40/ca.png" alt="Bandeira do Canadá"
+            style="width: 30px; height: 20px; vertical-align: middle;">
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="paises.html">Países</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section class="country-info">
-    <h2>Bem-vindo(a) ao CANADÁ</h2>
-    <div class="country-info">
-      <img src="images/logo.png" alt="Imagem do país">
+    <!-- Container branco começa aqui -->
+    <div class="container-branco">
+        <section class="country-info">
+            <h2>BEM-VINDO(A) A AURION INTERCÂMBIOS🛫</h2>
+            <img src="images/logo.png" alt="Logo AURION" width="200"><br><br>
+
+            <section class="canada-section">
+                <h2>✨ DESCUBRA O CANADÁ: CULTURA, IDIOMA E CURIOSIDADES</h2>
+                <p>O Canadá é um destino ideal para intercâmbio, oferecendo cultura, segurança e alta qualidade de vida.
+                    Bilíngue e multicultural, o país une pessoas do mundo todo...</p>
+
+                <div class="images-container">
+                    <img src="images/sample1.jpg" alt="Imagem do país">
+                    <img src="images/sample2.jpg" alt="Imagem do país">
+                </div>
+
+                <br>
+                <h2>LOCALIZAÇÃO📍</h2>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15552552.311235996!2d-96.14754838082267!3d61.58611056637498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b0d03d337cc6ad9%3A0x9968b72aa2438fa5!2zQ2FuYWTDoQ!5e0!3m2!1spt-BR!2sbr!4v1761571167618!5m2!1spt-BR!2sbr"
+                    width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen=""
+                    loading="lazy"></iframe>
+            </section>
+        </section>
     </div>
-	<p><section class="canada-section">
-  <h2>✨ DESCUBRA O CANADÁ: CULTURA, IDIOMA E CURIOSIDADES 🇨🇦</h2>
-
-  <p>O Canadá é um destino ideal para intercâmbio, oferecendo cultura, segurança e alta qualidade de vida. 
-    Bilíngue e multicultural, o país une pessoas do mundo todo.
-    Com tradições marcadas por festivais, paisagens incríveis e o Canada Day, celebra a diversidade em cada estação. 
-    Famoso pelo maple syrup, hóquei no gelo e pela simpatia do povo, encanta com suas belezas naturais. 
-    Com ensino de excelência e oportunidades de estudo e trabalho, é o lugar perfeito para crescer e viver uma experiência inesquecível.</p>
-	
-	<div class="images-container">
-      <img src="images/sample1.jpg" alt="Imagem do país">
-      <img src="images/sample2.jpg" alt="Imagem do país">
-      <img src="images/sample23.jpg" alt="Imagem do país">
-    </div>
     <br>
-    <h2>LOCALIZAÇÃO📍</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15552552.311235996!2d-96.14754838082267!3d61.58611056637498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b0d03d337cc6ad9%3A0x9968b72aa2438fa5!2zQ2FuYWTDoQ!5e0!3m2!1spt-BR!2sbr!4v1761571167618!5m2!1spt-BR!2sbr" width="1100" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <div> 
-    <br>
-    <h2>HISTÓRIA🍁</h2>
-    <p>O Canadá foi inicialmente habitado por povos indígenas, que desenvolveram culturas, línguas e tradições próprias ao longo de milhares de anos. 
-      No século XVI, franceses e ingleses iniciaram a colonização: os franceses se fixaram em Quebec, focando no comércio de peles, enquanto os ingleses 
-      ocuparam outras regiões do Atlântico. Após disputas, o Tratado de Paris de 1763 garantiu à Inglaterra o domínio sobre a maior parte do território.No século XIX, 
-      o país recebeu imigrantes britânicos, irlandeses e escoceses, o que impulsionou o crescimento urbano e econômico. Em 1867, com a união de Ontário, Quebec, 
-      Nova Escócia e Novo Brunswick, formou-se a Confederação Canadense, consolidando uma identidade nacional.Durante o século XX, o Canadá expandiu seu território, 
-      adotou políticas de multiculturalismo e participou ativamente da Segunda Guerra Mundial ao lado dos Aliados. Com o tempo, conquistou maior autonomia do Reino Unido 
-      e tornou-se um país moderno, democrático e diverso, reconhecido pelo respeito aos direitos humanos e pela inclusão social.</p>
-    
-    <div class="images-container">
-      <img src="images/sample3.jpg" alt="Imagem do país">
-      <img src="images/sample4.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2>TRADIÇÃO🔰</h2>
-    <p>O Canadá possui tradições que refletem sua diversidade cultural e o ritmo das quatro estações do ano. O Canada Day, celebrado em 1º de julho, 
-        é o principal feriado nacional, com desfiles, shows e fogos de artifício em todo o país. O Thanksgiving canadense, comemorado em outubro, é um momento 
-        de gratidão pelas colheitas, reunindo famílias em torno de refeições típicas. Durante o inverno, festivais de neve, patinação, esqui e esculturas de gelo 
-        animam cidades como Quebec e Ottawa, enquanto o Natal é celebrado com mercados, luzes e tradições europeias. O Canadá também abriga festivais culturais de 
-        grande importância, como o Winterlude em Ottawa, o Caribana em Toronto e o Festival de Jazz de Montreal, que celebram música, dança e a diversidade das 
-        comunidades. Além disso, muitos povos indígenas mantêm rituais, danças e festivais tradicionais que preservam suas histórias e costumes. 
-        O hóquei no gelo, mais do que um esporte, é parte da identidade canadense e uma paixão nacional, presente em jogos e campeonatos por todo o país. 
-        Todas essas tradições mostram como o Canadá combina modernidade, diversidade cultural e respeito às suas raízes, criando experiências únicas para 
-        moradores e visitantes.</p>
-	
-    <div class="images-container">
-      <img src="images/sample5.jpg" alt="Imagem do país">
-      <img src="images/sample6.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2>CULTURA🎭</h2>
-    <p>O Canadá é um país multicultural e bilíngue, com inglês e francês como idiomas oficiais, resultado da influência de colonizadores europeus e da rica herança 
-        indígena. Ao longo dos séculos, a chegada de imigrantes de todo o mundo consolidou um país diverso, onde diferentes culturas convivem e se complementam.Essa 
-        diversidade é visível na música, que vai do folk tradicional às tendências modernas, na literatura, com autores de renome internacional, e nas artes visuais, 
-        incluindo pintura, escultura e cinema. Os festivais culturais são um reflexo dessa pluralidade: o Festival de Jazz de Montreal, o Caribana em Toronto e o 
-        Winterlude em Ottawa celebram música, dança, cores e tradições de várias comunidades.Além disso, cada região do Canadá preserva suas características culturais
-         próprias. Quebec mantém forte influência francesa na arquitetura, gastronomia e costumes cotidianos, enquanto o oeste do país valoriza a cultura indígena e as 
-         tradições locais. Nas cidades canadenses, museus, galerias e teatros promovem a arte, a história e a educação, tornando a experiência cultural completa e 
-         acessível a moradores e visitantes.O Canadá é, portanto, um país que combina tradição e modernidade, abraça a diversidade e promove o respeito às diferenças, 
-         tornando sua cultura rica, dinâmica e única no mundo.</p>
-
-    <div class="images-container">
-      <img src="images/sample7.jpg" alt="Imagem do país">
-      <img src="images/sample8.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2> COSTUMES💈</h2>
-    <p> No Canadá, a pontualidade, a educação e o respeito são muito valorizados, e as conversas costumam ser formais com desconhecidos. A família é importante, mas a 
-      independência individual também é valorizada, e reuniões sociais com amigos e familiares são comuns. O país possui festivais e tradições regionais, como 
-      Winterlude, o Carnaval de Quebec e pow wows indígenas, além de atividades culturais como literatura, música e cinema. Os canadenses mantêm forte relação com a 
-      natureza, praticando esportes ao ar livre, trilhas, camping e esportes de inverno, e valorizam a preservação ambiental.</p>
-
-      <div class="images-container">
-      <img src="images/sample9.jpg" alt="Imagem do país">
-      <img src="images/sample10.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2> GASTRONOMIA🍜</h2>
-    <p> A gastronomia do Canadá é rica e diversificada, refletindo sua multiculturalidade e os recursos naturais de cada região. Entre os pratos típicos, destacam-se o 
-      poutine, feito com batatas fritas, queijo coalho e molho gravy; a tourtière, torta de carne típica de Quebec servida especialmente no Natal; o bannock, pão 
-      indígena assado ou frito; e os Nanaimo bars, doces originários da Colúmbia Britânica, com camadas de biscoito, creme e chocolate. Ingredientes populares incluem 
-      o xarope de bordo, utilizado em panquecas, sobremesas e pratos salgados; frutos do mar como salmão, lagosta, caranguejo e mexilhões, principalmente na costa
-       atlântica; carnes de alce, caça, frango e bovina; além de produtos lácteos, como queijos locais e manteiga. Entre as bebidas, destacam-se as cervejas artesanais, 
-       a cidra de maçã, o maple liqueur feito com xarope de bordo, e o consumo frequente de café e chá, especialmente no inverno. A culinária canadense combina 
-       influências indígenas, francesas, britânicas e de imigrantes de diversas partes do mundo, e nas grandes cidades é comum encontrar restaurantes de cozinha 
-       internacional, reforçando a multiculturalidade gastronômica do país.</p>
-
-       <div class="images-container">
-      <img src="images/sample11.jpg" alt="Imagem do país">
-      <img src="images/sample12.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2> ECONÔMIA E EDUCAÇÃO📚💵</h2>
-    <p>O Canadá possui uma economia desenvolvida e diversificada, sendo um dos países mais ricos do mundo. Seus principais setores incluem recursos naturais, 
-      como petróleo, gás natural, madeira e minerais; agricultura, com destaque para grãos, laticínios e carnes; indústria, especialmente manufatura de automóveis, 
-      aeronaves e tecnologia; e serviços, como turismo, finanças, educação e saúde. O país mantém fortes relações comerciais com os Estados Unidos, China, União Europeia 
-      e outros países, além de investir em tecnologia, inovação e energias renováveis.O sistema educacional canadense é público, gratuito e de alta qualidade até o 
-      ensino médio, sendo gerido pelas províncias e territórios, o que gera algumas diferenças regionais. O Canadá conta com universidades renomadas, como University of 
-      Toronto, McGill University e University of British Columbia, atraindo muitos estudantes estrangeiros. Além disso, programas de formação técnica e profissional são 
-      bem estruturados, preparando uma mão de obra qualificada para os diversos setores da economia. </p>
-
-      <div class="images-container">
-      <img src="images/sample13.jpg" alt="Imagem do país">
-      <img src="images/sample14.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2> TURISMO🛫</h2>
-    <p> O Canadá é um destino turístico muito procurado por sua beleza natural e diversidade cultural. Entre as cidades mais visitadas estão Toronto, Vancouver, 
-      Montreal e Quebec, que oferecem atrações urbanas, museus, restaurantes e vida noturna. O país também é famoso por seus pontos turísticos naturais, como as Niagara
-       Falls, as Montanhas Rochosas, o parque de Banff e a região histórica do Old Quebec.O turismo no Canadá combina experiências culturais e ao ar livre: os visitantes 
-       podem participar de festivais locais, conhecer a cultura indígena, praticar esportes como esqui, snowboard, canoagem e trilhas, ou simplesmente explorar as 
-       paisagens deslumbrantes de lagos, florestas e montanhas. Além disso, o país é conhecido por sua hospitalidade, segurança e infraestrutura turística de qualidade, 
-       tornando-o ideal para turistas de todas as idades.</p>
-
-       <div class="images-container">
-      <img src="images/sample15.jpg" alt="Imagem do país">
-      <img src="images/sample16.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2>INTERCÂMBIO E PASSAPORTE🛂</h2>
-    <p>O Canadá é um dos destinos mais procurados para intercâmbio por sua educação de qualidade, segurança e diversidade cultural. O país oferece programas de idiomas, 
-      ensino médio, faculdade e trabalho-estudo, que permitem aprender inglês ou francês, conhecer novas culturas e até permanecer no país após os estudos.Para participar
-      , é necessário ter um passaporte válido e o visto correto: o eTA para cursos de até seis meses e o Study Permit para estudos mais longos, que pode permitir 
-      trabalhar até 20 horas por semana. É importante apresentar documentos como comprovante de matrícula e comprovação financeira e planejar tudo com antecedência. 
-      O intercâmbio no Canadá é uma experiência enriquecedora que une aprendizado, crescimento e novas oportunidades.</p>
-
-      <div class="images-container">
-    <img src="images/sample24.jpg" alt="Imagem do país">
-    <img src="images/sample25.jpg" alt="Imagem do país">
-  </div> 
-    <br>
-    <h2>RECEPÇÃO COM OS INTERCÂMBISTAS🙋‍♀️🙋‍♂️</h2>
-    <p>A recepção dos canadenses aos intercambistas é geralmente muito acolhedora e amigável, refletindo a tradição do país de valorizar a diversidade cultural. 
-      Canadenses costumam ser educados, respeitosos e pacientes, facilitando a adaptação de estudantes estrangeiros, seja nas escolas, universidades ou no dia a dia da 
-      cidade.Em muitas cidades, há programas de integração para estudantes internacionais, oferecendo suporte em questões acadêmicas, culturais e sociais, além de 
-      atividades de networking e eventos culturais. Os canadenses também costumam ajudar os intercambistas com informações sobre transporte, moradia e costumes locais, 
-      incentivando a participação em clubes, esportes e atividades comunitárias.Essa postura aberta e receptiva faz com que os intercambistas se sintam bem-vindos, 
-      contribuindo para uma experiência mais positiva e enriquecedora no país.</p>
-
-      <div class="images-container">
-    <img src="images/sample28.jpg" alt="Imagem do país">
-    <img src="images/sample29.jpg" alt="Imagem do país">
-  </div> 
-    <br>
-    <h2>ACOMODAÇÃO AOS INTERCÂMBISTAS🤓🏡</h2>
-    <p>No Canadá, os intercambistas têm várias opções de acomodação, cada uma oferecendo experiências diferentes. Uma das mais comuns são as residências estudantis 
-      dentro ou próximas das universidades e colleges, onde é possível morar em quartos individuais ou compartilhados, com acesso a áreas comuns, cozinhas e, em alguns 
-      casos, refeições incluídas. Esse tipo de acomodação facilita a socialização e a integração com outros estudantes. Outra alternativa bastante procurada é o homestay, 
-      em que o estudante mora com uma família canadense, participando do dia a dia da casa e vivenciando a cultura local de forma direta, ideal para quem quer praticar 
-      inglês ou francês e entender os costumes do país. Para quem busca mais independência, há apartamentos ou casas para alugar, muitas vezes compartilhados com outros 
-      estudantes para reduzir custos. Além disso, algumas cidades oferecem residências privadas e hostels estudantis, que podem ser soluções temporárias ou de curto 
-      prazo. Independentemente da escolha, todas as acomodações no Canadá prezam por segurança, conforto e acesso a transporte e serviços, garantindo que o intercambista
-      possa se concentrar nos estudos e aproveitar a experiência cultural ao máximo.</p>
-
-      <div class="images-container">
-    <img src="images/sample32.jpg" alt="Imagem do país">
-    <img src="images/sample33.jpg" alt="Imagem do país">
-  </div> 
-    <br>
-    <h2>APOIO PSICOLÓGICO AOS INTERCÂMBISTAS👩‍⚕️</h2>
-    <p>A saúde mental dos intercambistas no Canadá é um aspecto importante da experiência, pois estar longe de casa, da família e de amigos pode gerar saudade, estresse 
-      e solidão, especialmente nos primeiros meses. A adaptação a um novo idioma, cultura, rotina acadêmica e clima também pode aumentar a ansiedade. Muitas 
-      universidades e colleges canadenses oferecem apoio psicológico, serviços de aconselhamento e grupos de suporte para estudantes internacionais, ajudando na gestão
-      do estresse, depressão ou dificuldades de adaptação. Além disso, atividades sociais, esportes, clubes estudantis e a prática de hobbies são estratégias eficazes 
-      para manter o bem-estar emocional. Intercambistas são incentivados a buscar ajuda cedo, manter contato com familiares e criar uma rede de apoio no novo país, 
-      garantindo que a experiência seja enriquecedora tanto academicamente quanto pessoalmente.</p>
-
-      <div class="images-container">
-    <img src="images/sample36.jpg" alt="Imagem do país">
-    <img src="images/sample37.jpg" alt="Imagem do país">
-  </div> 
-    <br>
-    <h2>TRANSPORTE E LOCOMOÇÃO🚇</h2>
-    <p>No Canadá, a locomoção é eficiente e varia conforme a cidade. Nas grandes cidades, como Toronto, Montreal e Vancouver, há sistemas de transporte público bem 
-      estruturados, incluindo metrôs, bondes, ônibus e trens urbanos. Para viagens entre cidades ou longas distâncias, trens e aviões são opções rápidas e confortáveis,
-       com destaque para a VIA Rail e companhias aéreas como Air Canada e WestJet. Em regiões menores, o carro é a forma mais prática de se deslocar, e muitas cidades 
-       também oferecem ciclovias e programas de aluguel de bicicletas. Táxis e aplicativos de transporte, como Uber e Lyft, facilitam os trajetos urbanos, enquanto em 
-       cidades costeiras, balsas conectam ilhas e o continente. Para intercambistas, essas opções garantem mobilidade, conforto e facilidade para explorar o país.</p>
-
-       <div class="images-container">
-    <img src="images/sample30.jpg" alt="Imagem do país">
-    <img src="images/sample31.jpg" alt="Imagem do país">
-  </div> 
-    <br>
-    <h2>CUSTO DE VIDA🏠</h2>
-    <p>O custo de vida no Canadá é considerado alto, variando conforme a cidade e o estilo de vida. As grandes metrópoles, como Toronto e Vancouver, estão entre as mais 
-      caras, enquanto cidades médias ou menores, como Montreal, Ottawa e Winnipeg, costumam ser mais acessíveis. A moradia é o principal gasto, com aluguéis que podem 
-      variar entre CAD $1.000 e $3.500 por mês, dependendo da localização. Os custos com alimentação giram em torno de CAD $300 a $500 mensais, enquanto o transporte 
-      público custa, em média, de CAD $90 a $160 por mês. As contas básicas, como energia, internet e celular, somam cerca de CAD $150 a $300 mensais. O sistema de saúde 
-      público é gratuito apenas para residentes, sendo necessário contratar um seguro privado, que custa entre CAD $50 e $100 por mês, para estudantes e visitantes. 
-      No total, o custo médio mensal para uma pessoa varia entre CAD $1.800 e $4.500, dependendo da cidade escolhida e do padrão de vida.</p>
-
-      <div class="images-container">
-    <img src="images/sample26.jpg" alt="Imagem do país">
-    <img src="images/sample27.jpg" alt="Imagem do país">
-  </div> 
-    <br>
-    <h2> GEOGRAFIA🌎</h2>
-    <p>O Canadá é o segundo maior país do mundo em extensão territorial, localizado na América do Norte, limitado ao norte pelo Oceano Ártico, a oeste pelo Oceano 
-      Pacífico, a leste pelo Oceano Atlântico e ao sul pelos Estados Unidos. O país é dividido em 10 províncias e 3 territórios, cada um com características geográficas
-       próprias.O território canadense apresenta grandes diversidade de paisagens, incluindo as Montanhas Rochosas, planícies férteis, florestas densas, milhares de 
-       lagos e rios, além de regiões árticas com tundra gelada. O clima varia bastante: o norte é extremamente frio e árido, o centro possui verões quentes e invernos 
-       rigorosos, e a costa leste apresenta clima mais temperado e úmido.O Canadá também é conhecido por seus parques nacionais e reservas naturais, que protegem a 
-       fauna e flora locais e atraem turistas para atividades ao ar livre, como trilhas, esqui e observação da vida selvagem. </p>
-
-       <div class="images-container">
-      <img src="images/sample17.jpg" alt="Imagem do país">
-      <img src="images/sample18.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2> CLIMA E TEMPERATURAS🌡️❄️</h2>
-    <p>O Canadá possui um clima diversificado, influenciado pela sua grande extensão territorial. De modo geral, o país apresenta invernos longos e rigorosos e verões 
-      curtos e amenos, mas as condições variam bastante conforme a região. No norte canadense (Yukon, Nunavut e Territórios do Noroeste), o inverno é extremamente 
-      frio, com temperaturas que podem chegar a -40 °C, e o verão é curto e fresco. Nas províncias centrais, como Ontário e Quebec, os invernos são frios, com muita
-      neve, enquanto os verões podem alcançar 25 °C a 30 °C. Na costa oeste, principalmente em Vancouver e na Colúmbia Britânica, o clima é mais ameno, com 
-      invernos chuvosos e verões agradáveis, geralmente entre 20 °C e 25 °C. Já as regiões leste e atlânticas, como Nova Escócia e Terra Nova, têm invernos frios e
-      úmidos, e verões moderados. Para intercambistas, é essencial estar preparado para o frio intenso do inverno e aproveitar o verão relativamente curto, 
-      mas confortável, no país.</p>
+    <div class="container-branco">
+        <h2>HISTÓRIA🍁</h2>
+        <p>O Canadá foi inicialmente habitado por povos indígenas, que desenvolveram culturas, línguas e tradições
+            próprias
+            ao
+            longo de milhares de anos.
+            No século XVI, franceses e ingleses iniciaram a colonização: os franceses se fixaram em Quebec, focando no
+            comércio
+            de peles, enquanto os ingleses
+            ocuparam outras regiões do Atlântico. Após disputas, o Tratado de Paris de 1763 garantiu à Inglaterra o
+            domínio
+            sobre a maior parte do território.No século XIX,
+            o país recebeu imigrantes britânicos, irlandeses e escoceses, o que impulsionou o crescimento urbano e
+            econômico.
+            Em
+            1867, com a união de Ontário, Quebec,
+            Nova Escócia e Novo Brunswick, formou-se a Confederação Canadense, consolidando uma identidade
+            nacional.Durante o
+            século XX, o Canadá expandiu seu território,
+            adotou políticas de multiculturalismo e participou ativamente da Segunda Guerra Mundial ao lado dos Aliados.
+            Com o
+            tempo, conquistou maior autonomia do Reino Unido
+            e tornou-se um país moderno, democrático e diverso, reconhecido pelo respeito aos direitos humanos e pela
+            inclusão
+            social.</p>
 
         <div class="images-container">
-    <img src="images/sample34.jpg" alt="Imagem do país">
-    <img src="images/sample35.jpg" alt="Imagem do país">
-  </div> 
-    <br>
-    <h2> HALL DA FAMA DO CANADÁ🎶🎬</h2>
-    <p> O Canadá é berço de diversos famosos reconhecidos mundialmente nas áreas de música, cinema, esportes e literatura. Na música, destacam-se Celine Dion, 
-      Justin Bieber, Drake, Shania Twain e The Weeknd. No cinema e televisão, nomes como Ryan Reynolds, Rachel McAdams, Jim Carrey e Seth Rogen ganharam fama 
-      internacional. Nos esportes, o país produziu grandes atletas como Wayne Gretzky, considerado o maior jogador de hóquei de todos os tempos, Steve Nash, ícone do 
-      basquete, e Connor McDavid, destaque na NHL. Na literatura, autoras como Margaret Atwood e Alice Munro, vencedora do Nobel, representam a excelência canadense na
-       escrita.</p>
+            <img src="images/sample3.jpg" alt="Imagem do país">
+            <img src="images/sample4.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2>TRADIÇÃO🔰</h2>
+        <p>O Canadá possui tradições que refletem sua diversidade cultural e o ritmo das quatro estações do ano. O
+            Canada
+            Day,
+            celebrado em 1º de julho,
+            é o principal feriado nacional, com desfiles, shows e fogos de artifício em todo o país. O Thanksgiving
+            canadense,
+            comemorado em outubro, é um momento
+            de gratidão pelas colheitas, reunindo famílias em torno de refeições típicas. Durante o inverno, festivais
+            de
+            neve,
+            patinação, esqui e esculturas de gelo
+            animam cidades como Quebec e Ottawa, enquanto o Natal é celebrado com mercados, luzes e tradições europeias.
+            O
+            Canadá também abriga festivais culturais de
+            grande importância, como o Winterlude em Ottawa, o Caribana em Toronto e o Festival de Jazz de Montreal, que
+            celebram música, dança e a diversidade das
+            comunidades. Além disso, muitos povos indígenas mantêm rituais, danças e festivais tradicionais que
+            preservam suas
+            histórias e costumes.
+            O hóquei no gelo, mais do que um esporte, é parte da identidade canadense e uma paixão nacional, presente em
+            jogos
+            e
+            campeonatos por todo o país.
+            Todas essas tradições mostram como o Canadá combina modernidade, diversidade cultural e respeito às suas
+            raízes,
+            criando experiências únicas para
+            moradores e visitantes.</p>
 
-       <div class="images-container">
-      <img src="images/sample19.jpg" alt="Imagem do país">
-      <img src="images/sample20.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2> CURIOSIDADES🔎</h2>
-    <p> O maple syrup canadense representa cerca de 71% da produção mundial, sendo Quebec responsável pela maior parte.
+        <div class="images-container">
+            <img src="images/sample5.jpg" alt="Imagem do país">
+            <img src="images/sample6.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2>CULTURA🎭</h2>
+        <p>O Canadá é um país multicultural e bilíngue, com inglês e francês como idiomas oficiais, resultado da
+            influência
+            de
+            colonizadores europeus e da rica herança
+            indígena. Ao longo dos séculos, a chegada de imigrantes de todo o mundo consolidou um país diverso, onde
+            diferentes
+            culturas convivem e se complementam.Essa
+            diversidade é visível na música, que vai do folk tradicional às tendências modernas, na literatura, com
+            autores de
+            renome internacional, e nas artes visuais,
+            incluindo pintura, escultura e cinema. Os festivais culturais são um reflexo dessa pluralidade: o Festival
+            de Jazz
+            de Montreal, o Caribana em Toronto e o
+            Winterlude em Ottawa celebram música, dança, cores e tradições de várias comunidades.Além disso, cada região
+            do
+            Canadá preserva suas características culturais
+            próprias. Quebec mantém forte influência francesa na arquitetura, gastronomia e costumes cotidianos,
+            enquanto o
+            oeste do país valoriza a cultura indígena e as
+            tradições locais. Nas cidades canadenses, museus, galerias e teatros promovem a arte, a história e a
+            educação,
+            tornando a experiência cultural completa e
+            acessível a moradores e visitantes.O Canadá é, portanto, um país que combina tradição e modernidade, abraça
+            a
+            diversidade e promove o respeito às diferenças,
+            tornando sua cultura rica, dinâmica e única no mundo.</p>
 
-O hóquei no gelo é tão culturalmente importante que é considerado esporte nacional de inverno, enquanto o lacrosse é o esporte nacional de verão.
-O Canadá possui o maior número de lagos do mundo, com mais de 2 milhões, cobrindo cerca de 9% do território do país.
-Yellowknife, nos Territórios do Noroeste, é um dos melhores lugares do mundo para observar a aurora boreal.
-O país tem regiões inteiras de florestas boreais, que representam aproximadamente 1/3 da cobertura florestal do mundo.
-A cidade de Churchill, Manitoba, é conhecida como a “capital mundial dos ursos polares”.
-O Canadá possui o Parque Nacional Banff, a primeira área protegida do país, criada em 1885, famosa por suas montanhas e lagos glaciares.
-Niagara Falls é compartilhada com os EUA, mas o lado canadense oferece a melhor vista panorâmica e atrações turísticas.
-O norte do Canadá é tão remoto que algumas comunidades só são acessíveis por avião ou barco, especialmente no inverno.
-A bandeira canadense, com a folha de bordo vermelha, foi adotada oficialmente em 1965, e é hoje um dos símbolos mais reconhecidos do país.</p>
+        <div class="images-container">
+            <img src="images/sample7.jpg" alt="Imagem do país">
+            <img src="images/sample8.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2> COSTUMES💈</h2>
+        <p> No Canadá, a pontualidade, a educação e o respeito são muito valorizados, e as conversas costumam ser
+            formais
+            com
+            desconhecidos. A família é importante, mas a
+            independência individual também é valorizada, e reuniões sociais com amigos e familiares são comuns. O país
+            possui
+            festivais e tradições regionais, como
+            Winterlude, o Carnaval de Quebec e pow wows indígenas, além de atividades culturais como literatura, música
+            e
+            cinema. Os canadenses mantêm forte relação com a
+            natureza, praticando esportes ao ar livre, trilhas, camping e esportes de inverno, e valorizam a preservação
+            ambiental.</p>
 
-     <div class="images-container">
-      <img src="images/sample21.jpg" alt="Imagem do país">
-      <img src="images/sample22.jpg" alt="Imagem do país">
-    </div> 
-    <br>
-    <h2>TOPA UMA VIAGEM PARA UMA DAS CIDADES MAIS FAMOSAS DO CANADÁ?🛬🍁</h2>
-    <h2> SEJA BEM VINDO A TORONTO!🍁🧭</h2>
-    <p> CLIQUE AQUI 👇 E EMBARQUE NESSA AVENTURA🌍</p>
-    <br>
-  </section>
+        <div class="images-container">
+            <img src="images/sample9.jpg" alt="Imagem do país">
+            <img src="images/sample10.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2> GASTRONOMIA🍜</h2>
+        <p> A gastronomia do Canadá é rica e diversificada, refletindo sua multiculturalidade e os recursos naturais de
+            cada
+            região. Entre os pratos típicos, destacam-se o
+            poutine, feito com batatas fritas, queijo coalho e molho gravy; a tourtière, torta de carne típica de Quebec
+            servida
+            especialmente no Natal; o bannock, pão
+            indígena assado ou frito; e os Nanaimo bars, doces originários da Colúmbia Britânica, com camadas de
+            biscoito,
+            creme
+            e chocolate. Ingredientes populares incluem
+            o xarope de bordo, utilizado em panquecas, sobremesas e pratos salgados; frutos do mar como salmão, lagosta,
+            caranguejo e mexilhões, principalmente na costa
+            atlântica; carnes de alce, caça, frango e bovina; além de produtos lácteos, como queijos locais e manteiga.
+            Entre
+            as
+            bebidas, destacam-se as cervejas artesanais,
+            a cidra de maçã, o maple liqueur feito com xarope de bordo, e o consumo frequente de café e chá,
+            especialmente no
+            inverno. A culinária canadense combina
+            influências indígenas, francesas, britânicas e de imigrantes de diversas partes do mundo, e nas grandes
+            cidades é
+            comum encontrar restaurantes de cozinha
+            internacional, reforçando a multiculturalidade gastronômica do país.</p>
 
-  <iframe src="https://www.google.com/maps/embed?pb=!4v1761571926969!6m8!1m7!1sMY4TVt6cHFdWzvuJi3sxcA!2m2!1d43.64911655999149!2d-79.37228195749738!3f249.54506238510268!4f-6.159381334623248!5f0.7820865974627469" width="1100" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <h2>St. Lawrence Market</h2>
-    <p>O edifício St. Lawrence Market South é um importante edifício de mercado público em Toronto , Ontário , Canadá . 
-      Ele está localizado na esquina sudoeste das ruas Front e Lower Jarvis. Junto com o St. Lawrence Market North e o St. Lawrence Hall , ele compõe o 
-      complexo do St. Lawrence Market .O edifício atual foi inaugurado em 1902, incorporando o edifício da Prefeitura de Toronto de 1845 à estrutura. O 
-      edifício foi restaurado durante a década de 1970.</p>
-     <footer>
-      <h2> COM CERTEZA O CANADÁ É O DESTINO PERFEITO PARA O SEU INTERCÂMBIO! TE ESPERO AQUI, ATÉ BREVE!👋</h2>
-    <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
-  </footer>
+        <div class="images-container">
+            <img src="images/sample11.jpg" alt="Imagem do país">
+            <img src="images/sample12.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2> ECONÔMIA E EDUCAÇÃO📚💵</h2>
+        <p>O Canadá possui uma economia desenvolvida e diversificada, sendo um dos países mais ricos do mundo. Seus
+            principais
+            setores incluem recursos naturais,
+            como petróleo, gás natural, madeira e minerais; agricultura, com destaque para grãos, laticínios e carnes;
+            indústria, especialmente manufatura de automóveis,
+            aeronaves e tecnologia; e serviços, como turismo, finanças, educação e saúde. O país mantém fortes relações
+            comerciais com os Estados Unidos, China, União Europeia
+            e outros países, além de investir em tecnologia, inovação e energias renováveis.O sistema educacional
+            canadense é
+            público, gratuito e de alta qualidade até o
+            ensino médio, sendo gerido pelas províncias e territórios, o que gera algumas diferenças regionais. O Canadá
+            conta
+            com universidades renomadas, como University of
+            Toronto, McGill University e University of British Columbia, atraindo muitos estudantes estrangeiros. Além
+            disso,
+            programas de formação técnica e profissional são
+            bem estruturados, preparando uma mão de obra qualificada para os diversos setores da economia. </p>
+
+        <div class="images-container">
+            <img src="images/sample13.jpg" alt="Imagem do país">
+            <img src="images/sample14.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2> TURISMO🛫</h2>
+        <p> O Canadá é um destino turístico muito procurado por sua beleza natural e diversidade cultural. Entre as
+            cidades
+            mais visitadas estão Toronto, Vancouver,
+            Montreal e Quebec, que oferecem atrações urbanas, museus, restaurantes e vida noturna. O país também é
+            famoso por
+            seus pontos turísticos naturais, como as Niagara
+            Falls, as Montanhas Rochosas, o parque de Banff e a região histórica do Old Quebec.O turismo no Canadá
+            combina
+            experiências culturais e ao ar livre: os visitantes
+            podem participar de festivais locais, conhecer a cultura indígena, praticar esportes como esqui, snowboard,
+            canoagem
+            e trilhas, ou simplesmente explorar as
+            paisagens deslumbrantes de lagos, florestas e montanhas. Além disso, o país é conhecido por sua
+            hospitalidade,
+            segurança e infraestrutura turística de qualidade,
+            tornando-o ideal para turistas de todas as idades.</p>
+
+        <div class="images-container">
+            <img src="images/sample15.jpg" alt="Imagem do país">
+            <img src="images/sample16.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2>INTERCÂMBIO E PASSAPORTE🛂</h2>
+        <p>O Canadá é um dos destinos mais procurados para intercâmbio por sua educação de qualidade, segurança e
+            diversidade
+            cultural. O país oferece programas de idiomas,
+            ensino médio, faculdade e trabalho-estudo, que permitem aprender inglês ou francês, conhecer novas culturas
+            e até
+            permanecer no país após os estudos.Para participar
+            , é necessário ter um passaporte válido e o visto correto: o eTA para cursos de até seis meses e o Study
+            Permit
+            para
+            estudos mais longos, que pode permitir
+            trabalhar até 20 horas por semana. É importante apresentar documentos como comprovante de matrícula e
+            comprovação
+            financeira e planejar tudo com antecedência.
+            O intercâmbio no Canadá é uma experiência enriquecedora que une aprendizado, crescimento e novas
+            oportunidades.
+        </p>
+
+        <div class="images-container">
+            <img src="images/sample24.jpg" alt="Imagem do país">
+            <img src="images/sample25.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2>RECEPÇÃO COM OS INTERCÂMBISTAS🙋‍♀️🙋‍♂️</h2>
+        <p>A recepção dos canadenses aos intercambistas é geralmente muito acolhedora e amigável, refletindo a tradição
+            do
+            país de valorizar a diversidade cultural.
+            Canadenses costumam ser educados, respeitosos e pacientes, facilitando a adaptação de estudantes
+            estrangeiros,
+            seja
+            nas escolas, universidades ou no dia a dia da
+            cidade.Em muitas cidades, há programas de integração para estudantes internacionais, oferecendo suporte em
+            questões
+            acadêmicas, culturais e sociais, além de
+            atividades de networking e eventos culturais. Os canadenses também costumam ajudar os intercambistas com
+            informações
+            sobre transporte, moradia e costumes locais,
+            incentivando a participação em clubes, esportes e atividades comunitárias.Essa postura aberta e receptiva
+            faz com
+            que os intercambistas se sintam bem-vindos,
+            contribuindo para uma experiência mais positiva e enriquecedora no país.</p>
+
+        <div class="images-container">
+            <img src="images/sample28.jpg" alt="Imagem do país">
+            <img src="images/sample29.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2>ACOMODAÇÃO AOS INTERCÂMBISTAS🤓🏡</h2>
+        <p>No Canadá, os intercambistas têm várias opções de acomodação, cada uma oferecendo experiências diferentes.
+            Uma
+            das
+            mais comuns são as residências estudantis
+            dentro ou próximas das universidades e colleges, onde é possível morar em quartos individuais ou
+            compartilhados,
+            com
+            acesso a áreas comuns, cozinhas e, em alguns
+            casos, refeições incluídas. Esse tipo de acomodação facilita a socialização e a integração com outros
+            estudantes.
+            Outra alternativa bastante procurada é o homestay,
+            em que o estudante mora com uma família canadense, participando do dia a dia da casa e vivenciando a cultura
+            local
+            de forma direta, ideal para quem quer praticar
+            inglês ou francês e entender os costumes do país. Para quem busca mais independência, há apartamentos ou
+            casas
+            para
+            alugar, muitas vezes compartilhados com outros
+            estudantes para reduzir custos. Além disso, algumas cidades oferecem residências privadas e hostels
+            estudantis,
+            que
+            podem ser soluções temporárias ou de curto
+            prazo. Independentemente da escolha, todas as acomodações no Canadá prezam por segurança, conforto e acesso
+            a
+            transporte e serviços, garantindo que o intercambista
+            possa se concentrar nos estudos e aproveitar a experiência cultural ao máximo.</p>
+
+        <div class="images-container">
+            <img src="images/sample32.jpg" alt="Imagem do país">
+            <img src="images/sample33.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2>APOIO PSICOLÓGICO AOS INTERCÂMBISTAS👩‍⚕️</h2>
+        <p>A saúde mental dos intercambistas no Canadá é um aspecto importante da experiência, pois estar longe de casa,
+            da
+            família e de amigos pode gerar saudade, estresse
+            e solidão, especialmente nos primeiros meses. A adaptação a um novo idioma, cultura, rotina acadêmica e
+            clima
+            também
+            pode aumentar a ansiedade. Muitas
+            universidades e colleges canadenses oferecem apoio psicológico, serviços de aconselhamento e grupos de
+            suporte
+            para
+            estudantes internacionais, ajudando na gestão
+            do estresse, depressão ou dificuldades de adaptação. Além disso, atividades sociais, esportes, clubes
+            estudantis e
+            a
+            prática de hobbies são estratégias eficazes
+            para manter o bem-estar emocional. Intercambistas são incentivados a buscar ajuda cedo, manter contato com
+            familiares e criar uma rede de apoio no novo país,
+            garantindo que a experiência seja enriquecedora tanto academicamente quanto pessoalmente.</p>
+
+        <div class="images-container">
+            <img src="images/sample36.jpg" alt="Imagem do país">
+            <img src="images/sample37.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2>TRANSPORTE E LOCOMOÇÃO🚇</h2>
+        <p>No Canadá, a locomoção é eficiente e varia conforme a cidade. Nas grandes cidades, como Toronto, Montreal e
+            Vancouver, há sistemas de transporte público bem
+            estruturados, incluindo metrôs, bondes, ônibus e trens urbanos. Para viagens entre cidades ou longas
+            distâncias,
+            trens e aviões são opções rápidas e confortáveis,
+            com destaque para a VIA Rail e companhias aéreas como Air Canada e WestJet. Em regiões menores, o carro é a
+            forma
+            mais prática de se deslocar, e muitas cidades
+            também oferecem ciclovias e programas de aluguel de bicicletas. Táxis e aplicativos de transporte, como Uber
+            e
+            Lyft,
+            facilitam os trajetos urbanos, enquanto em
+            cidades costeiras, balsas conectam ilhas e o continente. Para intercambistas, essas opções garantem
+            mobilidade,
+            conforto e facilidade para explorar o país.</p>
+
+        <div class="images-container">
+            <img src="images/sample30.jpg" alt="Imagem do país">
+            <img src="images/sample31.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2>CUSTO DE VIDA🏠</h2>
+        <p>O custo de vida no Canadá é considerado alto, variando conforme a cidade e o estilo de vida. As grandes
+            metrópoles,
+            como Toronto e Vancouver, estão entre as mais
+            caras, enquanto cidades médias ou menores, como Montreal, Ottawa e Winnipeg, costumam ser mais acessíveis. A
+            moradia
+            é o principal gasto, com aluguéis que podem
+            variar entre CAD $1.000 e $3.500 por mês, dependendo da localização. Os custos com alimentação giram em
+            torno de
+            CAD
+            $300 a $500 mensais, enquanto o transporte
+            público custa, em média, de CAD $90 a $160 por mês. As contas básicas, como energia, internet e celular,
+            somam
+            cerca
+            de CAD $150 a $300 mensais. O sistema de saúde
+            público é gratuito apenas para residentes, sendo necessário contratar um seguro privado, que custa entre CAD
+            $50 e
+            $100 por mês, para estudantes e visitantes.
+            No total, o custo médio mensal para uma pessoa varia entre CAD $1.800 e $4.500, dependendo da cidade
+            escolhida e
+            do
+            padrão de vida.</p>
+
+        <div class="images-container">
+            <img src="images/sample26.jpg" alt="Imagem do país">
+            <img src="images/sample27.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2> GEOGRAFIA🌎</h2>
+        <p>O Canadá é o segundo maior país do mundo em extensão territorial, localizado na América do Norte, limitado ao
+            norte
+            pelo Oceano Ártico, a oeste pelo Oceano
+            Pacífico, a leste pelo Oceano Atlântico e ao sul pelos Estados Unidos. O país é dividido em 10 províncias e
+            3
+            territórios, cada um com características geográficas
+            próprias.O território canadense apresenta grandes diversidade de paisagens, incluindo as Montanhas Rochosas,
+            planícies férteis, florestas densas, milhares de
+            lagos e rios, além de regiões árticas com tundra gelada. O clima varia bastante: o norte é extremamente frio
+            e
+            árido, o centro possui verões quentes e invernos
+            rigorosos, e a costa leste apresenta clima mais temperado e úmido.O Canadá também é conhecido por seus
+            parques
+            nacionais e reservas naturais, que protegem a
+            fauna e flora locais e atraem turistas para atividades ao ar livre, como trilhas, esqui e observação da vida
+            selvagem. </p>
+
+        <div class="images-container">
+            <img src="images/sample17.jpg" alt="Imagem do país">
+            <img src="images/sample18.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2> CLIMA E TEMPERATURAS🌡️❄️</h2>
+        <p>O Canadá possui um clima diversificado, influenciado pela sua grande extensão territorial. De modo geral, o
+            país
+            apresenta invernos longos e rigorosos e verões
+            curtos e amenos, mas as condições variam bastante conforme a região. No norte canadense (Yukon, Nunavut e
+            Territórios do Noroeste), o inverno é extremamente
+            frio, com temperaturas que podem chegar a -40 °C, e o verão é curto e fresco. Nas províncias centrais, como
+            Ontário
+            e Quebec, os invernos são frios, com muita
+            neve, enquanto os verões podem alcançar 25 °C a 30 °C. Na costa oeste, principalmente em Vancouver e na
+            Colúmbia
+            Britânica, o clima é mais ameno, com
+            invernos chuvosos e verões agradáveis, geralmente entre 20 °C e 25 °C. Já as regiões leste e atlânticas,
+            como Nova
+            Escócia e Terra Nova, têm invernos frios e
+            úmidos, e verões moderados. Para intercambistas, é essencial estar preparado para o frio intenso do inverno
+            e
+            aproveitar o verão relativamente curto,
+            mas confortável, no país.</p>
+
+        <div class="images-container">
+            <img src="images/sample34.jpg" alt="Imagem do país">
+            <img src="images/sample35.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2> HALL DA FAMA DO CANADÁ🎶🎬</h2>
+        <p> O Canadá é berço de diversos famosos reconhecidos mundialmente nas áreas de música, cinema, esportes e
+            literatura.
+            Na música, destacam-se Celine Dion,
+            Justin Bieber, Drake, Shania Twain e The Weeknd. No cinema e televisão, nomes como Ryan Reynolds, Rachel
+            McAdams,
+            Jim Carrey e Seth Rogen ganharam fama
+            internacional. Nos esportes, o país produziu grandes atletas como Wayne Gretzky, considerado o maior jogador
+            de
+            hóquei de todos os tempos, Steve Nash, ícone do
+            basquete, e Connor McDavid, destaque na NHL. Na literatura, autoras como Margaret Atwood e Alice Munro,
+            vencedora
+            do
+            Nobel, representam a excelência canadense na
+            escrita.</p>
+
+        <div class="images-container">
+            <img src="images/sample19.jpg" alt="Imagem do país">
+            <img src="images/sample20.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2> CURIOSIDADES🔎</h2>
+        <p> O maple syrup canadense representa cerca de 71% da produção mundial, sendo Quebec responsável pela maior
+            parte.
+
+            O hóquei no gelo é tão culturalmente importante que é considerado esporte nacional de inverno, enquanto o
+            lacrosse
+            é
+            o esporte nacional de verão.
+            O Canadá possui o maior número de lagos do mundo, com mais de 2 milhões, cobrindo cerca de 9% do território
+            do
+            país.
+            Yellowknife, nos Territórios do Noroeste, é um dos melhores lugares do mundo para observar a aurora boreal.
+            O país tem regiões inteiras de florestas boreais, que representam aproximadamente 1/3 da cobertura florestal
+            do
+            mundo.
+            A cidade de Churchill, Manitoba, é conhecida como a “capital mundial dos ursos polares”.
+            O Canadá possui o Parque Nacional Banff, a primeira área protegida do país, criada em 1885, famosa por suas
+            montanhas e lagos glaciares.
+            Niagara Falls é compartilhada com os EUA, mas o lado canadense oferece a melhor vista panorâmica e atrações
+            turísticas.
+            O norte do Canadá é tão remoto que algumas comunidades só são acessíveis por avião ou barco, especialmente
+            no
+            inverno.
+            A bandeira canadense, com a folha de bordo vermelha, foi adotada oficialmente em 1965, e é hoje um dos
+            símbolos
+            mais
+            reconhecidos do país.</p>
+
+        <div class="images-container">
+            <img src="images/sample21.jpg" alt="Imagem do país">
+            <img src="images/sample22.jpg" alt="Imagem do país">
+        </div>
+        <br>
+        <h2>TOPA UMA VIAGEM PARA UMA DAS CIDADES MAIS FAMOSAS DO CANADÁ?🛬🍁</h2>
+        <h2> SEJA BEM VINDO A TORONTO!🍁🧭</h2>
+        <p> CLIQUE AQUI 👇 E EMBARQUE NESSA AVENTURA!🌍</p>
+        <br>
+        </section>
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!4v1761571926969!6m8!1m7!1sMY4TVt6cHFdWzvuJi3sxcA!2m2!1d43.64911655999149!2d-79.37228195749738!3f249.54506238510268!4f-6.159381334623248!5f0.7820865974627469"
+            width="1100" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <h2>St. Lawrence Market</h2>
+        <p>O edifício St. Lawrence Market South é um importante edifício de mercado público em Toronto , Ontário ,
+            Canadá .
+            Ele está localizado na esquina sudoeste das ruas Front e Lower Jarvis. Junto com o St. Lawrence Market North
+            e o
+            St.
+            Lawrence Hall , ele compõe o
+            complexo do St. Lawrence Market .O edifício atual foi inaugurado em 1902, incorporando o edifício da
+            Prefeitura de
+            Toronto de 1845 à estrutura. O
+            edifício foi restaurado durante a década de 1970.</p>
+        <footer>
+            <h2> COM CERTEZA O CANADÁ É O DESTINO PERFEITO PARA O SEU INTERCÂMBIO! TE ESPERO AQUI, ATÉ BREVE!👋</h2>
+            <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
+
+            <!-- Container branco termina aqui -->
+        </footer>
 </body>
+
 </html>

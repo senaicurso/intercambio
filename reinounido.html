@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>Reino Unido</h1>
+    <h1>Crownbridge International</h1>
     <img src="https://flagcdn.com/w40/gb.png"
        alt="Bandeira do Reino Unido" 
        style="width: 30px; height: 20px; vertical-align: middle;">
@@ -275,5 +275,39 @@ As universidades oferecem apoio psicológico e social.<br><br>
   <footer>
     <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
   </footer>
+  <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botão Voltar ao Topo</title>
+
+  
+</head>
+<body>
+
+  <!-- Botão de voltar ao topo -->
+  <button id="btnTopo" title="Voltar ao topo">⬆</button>
+
+  <script>
+    // Mostrar o botão quando rolar
+    window.onscroll = function() {
+      const botao = document.getElementById("btnTopo");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        botao.style.display = "block";
+      } else {
+        botao.style.display = "none";
+      }
+    };
+
+    // Ação ao clicar
+    document.getElementById("btnTopo").onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+  </script>
+
+</body>
+</html>
+
 </body>
 </html>
