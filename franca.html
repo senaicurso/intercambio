@@ -7,6 +7,7 @@
     <title>França - Intercâmbio e Globalização</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
     <style>
         * {
             box-sizing: border-box
@@ -31,7 +32,7 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, background 0.3s ease;
-            z-index: 1000;
+            z-index: 998;
         }
 
         #btnMapa:hover {
@@ -39,7 +40,7 @@
             background: linear-gradient(145deg, #cf0000, #7a0000);
         }
 
-        /* Modal */
+        /* Modal mapa*/
         .modal {
             display: none;
             position: fixed;
@@ -72,7 +73,139 @@
             font-weight: bold;
             cursor: pointer;
             transition: color 0.3s;
+
         }
+
+        #btnChat {
+            position: absolute;
+            top: 140px;
+            left: 25px;
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #757575, #1a1818);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 998;
+        }
+
+        /* Modal mapa*/
+        .modalChat {
+            display: none;
+            position: absolute;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            /* background-color: rgba(0, 0, 0, 0.6); */
+        }
+
+        .modalChat-content {
+            background-color: #fff;
+            margin: 8% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 350px;
+            height: 500px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: fixed;
+            /* permite mover */
+            top: 100px;
+            left: 100px;
+            cursor: grab;
+        }
+
+        .header-chat {
+            background: linear-gradient(145deg, #007bff, #004aad);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            user-select: none;
+            cursor: grab;
+        }
+
+        .mensagens {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+            max-height: 190px;
+            gap: 10px;
+            /* área fixa para mensagens */
+        }
+
+        .opcoes {
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            justify-content: flex-start;
+            align-items: center;
+            max-height: 190px;
+            /* limite da área das perguntas */
+            overflow-y: auto;
+            /* adiciona rolagem independente */
+        }
+
+        .opcao {
+            background: linear-gradient(145deg, #007bff, #004aad);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 13px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        .opcao:hover {
+            transform: scale(1.05);
+            background: linear-gradient(145deg, #0057c2, #003a88);
+        }
+
+
+        .mensagem.user {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            align-self: flex-end;
+            border-radius: 4%;
+        }
+
+        .mensagem.bot {
+            padding: 10px;
+            background: #e5e5e5;
+            align-self: flex-start;
+            border-radius: 4%;
+        }
+
+
+        /* Botão de fechar */
+        .fecharChat {
+            color: #333;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            background: linear-gradient(19deg, #007bff, #004aad);
+        }
+
+
 
         #btnVoltarTopo {
             position: fixed;
@@ -93,7 +226,7 @@
             opacity: 0;
             transform: scale(0.8);
             pointer-events: none;
-            z-index: 999;
+            z-index: 998;
         }
 
         #btnVoltarTopo:hover {
@@ -205,6 +338,10 @@
 
 
     <header>
+        <!-- Botão flutuante para chat bot -->
+        <button id="btnChat" title="Chat bot">
+            <i class="material-icons" style="padding-top: 7px;">message</i>
+        </button>
         <h1>França</h1>
         <img src="https://flagcdn.com/w40/fr.png" alt="Bandeira da França"
             style="width: 30px; height: 20px; vertical-align: middle;">
@@ -216,12 +353,12 @@
         </nav>
     </header>
 
-    <!-- Botão flutuante -->
+    <!-- Botão flutuante para localização -->
     <button id="btnMapa" title="Ver mapa">
         <i class="material-icons" style="padding-top: 7px;">location_on</i>
     </button>
 
-    <!-- Modal -->
+    <!-- Modal localização -->
     <div id="modalMapa" class="modal">
         <div class="modal-content">
             <span class="fechar">&times;</span>
@@ -230,6 +367,30 @@
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10686144.218367325!2d-8.000197982645135!3d45.61864700911236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2zRnJhbsOnYQ!5e1!3m2!1spt-BR!2sbr!4v1761748688167!5m2!1spt-BR!2sbr"
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+
+
+    <!-- Modal Chat Bot -->
+    <div id="modalChat" class="modalChat">
+        <div class="modalChat-content">
+            <span class="fecharChat">&times;</span>
+            <div class="container-chat">
+                <div class="header-chat">
+                    <img src="" alt="">
+
+                    <h2>Chat Bot</h2>
+                </div>
+
+                <div class="mensagens" id="mensagens">
+                    <div class="mensagem bot">Olá! 👋 Eu sou BonjourBot escolha uma pergunta para eu te auxiliar a fazer
+                        o seu intercâmbio para a França! ✈</div>
+                </div>
+
+                <div class="opcoes" id="opcoes">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -289,10 +450,11 @@
 
             <hr>
 
-            
+
             <h2 style="padding-top: 40px;">Cultura e Arte 🎨</h2>
 
-            <p style="padding-bottom: 40px; margin: 0, 20px;">A cultura francesa é uma das mais ricas e influentes do mundo, marcada pela
+            <p style="padding-bottom: 40px; margin: 0, 20px;">A cultura francesa é uma das mais ricas e influentes do
+                mundo, marcada pela
                 valorização da arte, da língua, da gastronomia e do modo de viver.
                 Ela reflete séculos de história, tradição e pensamento, mas também uma constante busca por
                 modernidade e inovação. Os franceses têm um profundo orgulho de sua herança cultural e enxergam a
@@ -325,7 +487,7 @@
 
             <hr>
 
-            <h2 style="padding-top: 40px;">Culinaria 🥐</h2>
+            <h2 style="padding-top: 40px;">Culinária 🥐</h2>
             <p>A culinária francesa é uma das mais influentes e respeitadas do mundo, conhecida por sua sofisticação,
                 <br>
                 técnicas refinadas e valorização dos ingredientes de qualidade. Pratos como o coq au vin (frango cozido
@@ -374,6 +536,73 @@
             if (event.target === modal) {
                 modal.style.display = "none";
             }
+        }
+
+        // Chat bot
+        const btnChat = document.getElementById("btnChat");
+        const modalChat = document.getElementById("modalChat");
+        const fecharChat = document.querySelector(".fecharChat");
+
+        btnChat.onclick = () => (modalChat.style.display = "block");
+        fecharChat.onclick = () => (modalChat.style.display = "none");
+
+        // Chat movimentável
+        const chatBox = document.querySelector(".modalChat-content");
+        const header = document.querySelector(".header-chat");
+        let offsetX, offsetY, isDragging = false;
+
+        header.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            offsetX = e.clientX - chatBox.offsetLeft;
+            offsetY = e.clientY - chatBox.offsetTop;
+            chatBox.style.cursor = "grabbing";
+        });
+        document.addEventListener("mouseup", () => {
+            isDragging = false;
+            chatBox.style.cursor = "grab";
+        });
+        document.addEventListener("mousemove", (e) => {
+            if (isDragging) {
+                chatBox.style.left = `${e.clientX - offsetX}px`;
+                chatBox.style.top = `${e.clientY - offsetY}px`;
+            }
+        });
+
+        // Sistema de mensagens
+        const mensagens = document.getElementById("mensagens");
+        const opcoesDiv = document.getElementById("opcoes");
+
+        const perguntas = {
+            "💰 Quais são os preços do intercâmbio?": "Os valores variam conforme a cidade, o tipo de curso e a duração. Temos opções a partir de R$ 8.000 com tudo incluso (curso, hospedagem e suporte).",
+            "📍 Quais cidades na França posso escolher?": "As mais procuradas são Paris, Lyon, Montpellier, Nice e Toulouse, mas temos parcerias com escolas em outras regiões também.",
+            "⏳ Quanto tempo dura o intercâmbio?": "Pode durar de 2 semanas até 1 ano, dependendo do programa que você escolher.",
+            "🧾 Preciso de visto para estudar na França?": "Sim, para cursos com duração superior a 90 dias é necessário o visto de estudante, e nós te ajudamos com toda a documentação.",
+            "🗣️ Preciso saber falar francês?": "Não! Temos cursos de francês para iniciantes e escolas que aceitam alunos do nível básico.",
+            "🎓 Posso trabalhar enquanto estudo?": "Sim! Com o visto de estudante, você pode trabalhar até 20 horas por semana na França."
+        };
+
+        Object.keys(perguntas).forEach((pergunta) => {
+            const btn = document.createElement("button");
+            btn.classList.add("opcao");
+            btn.textContent = pergunta;
+            btn.onclick = () => enviarPergunta(pergunta);
+            opcoesDiv.appendChild(btn);
+        });
+
+        function addMessage(text, sender) {
+            const div = document.createElement("div");
+            div.classList.add("mensagem", sender);
+            div.textContent = text;
+            mensagens.appendChild(div);
+            mensagens.scrollTop = mensagens.scrollHeight;
+        }
+
+        function enviarPergunta(pergunta) {
+            addMessage(pergunta, "user");
+            setTimeout(() => {
+                const resposta = perguntas[pergunta] || "Desculpe, não entendi 😅";
+                addMessage(resposta, "bot");
+            }, 800);
         }
 
 
@@ -428,6 +657,7 @@
             slides[slideIndex - 1].style.display = "block";
             dots[slideIndex - 1].className += " active";
         }
+
     </script>
 </body>
 
