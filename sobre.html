@@ -29,65 +29,62 @@
     color: white;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* centraliza verticalmente */
-    padding: 1rem 2rem; /* antes era 1.5rem 3rem */
+    align-items: center;
+    padding: 0.8rem 1.2rem;
     flex-wrap: wrap;
     flex: 0 0 auto;
   }
 
   .info {
-    max-width: 580px;
+    max-width: 550px;
+    text-align: left;
   }
 
   .logos img {
-    height: 45px;
+    height: 40px;
     width: auto;
-    object-fit: contain;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
   }
 
   h1 {
     font-family: 'Playfair Display', serif;
-    margin: 0.3rem 0;
-    font-size: 1.4rem; /* menor */
+    margin: 0.2rem 0;
+    font-size: 1.25rem;
   }
 
   .info p {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0 0;
+    line-height: 1.3;
   }
 
   .professores {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0.8rem 1.2rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.6rem 0.9rem;
     border-radius: 10px;
+    min-width: 180px;
     text-align: right;
-    min-width: 200px;
   }
 
   .professores h3 {
-    font-family: 'Playfair Display', serif;
-    margin: 0 0 0.5rem 0;
-    color: #ffffff;
-    font-size: 1.1rem;
+    margin: 0 0 0.4rem 0;
+    font-size: 1rem;
+    font-family: 'Playfair Display';
   }
 
   .professores p {
     margin: 2px 0;
-    color: #f0f0f0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   /* MAIN */
   main {
     text-align: center;
     flex: 1 1 auto;
-    padding: 1rem 1rem 0 1rem;
+    padding: 0.8rem;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centraliza verticalmente */
-    overflow-y: auto; /* se faltar espaço, aparece rolagem interna */
+    overflow-y: auto;
   }
 
   h2 {
@@ -96,54 +93,61 @@
     margin-bottom: 1rem;
   }
 
-  /* Cards dos países */
+  /* BOTÃO VOLTAR */
+  .btn-voltar {
+    margin: 10px auto;
+    width: 110px;
+    background-color: #2a7ae2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .btn-voltar:hover {
+    background-color: #1d5cb8;
+  }
+
+  /* CARDS DOS PAÍSES */
   .paises-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 25px;
-    flex-wrap: wrap; /* agora adapta melhor */
+    gap: 22px;
+    flex-wrap: wrap;
   }
 
   .pais-card {
     background: white;
     border-radius: 15px;
-    padding: 1.2rem 1rem;
+    padding: 1rem;
     text-align: center;
+    width: 120px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 130px;
-    flex: 0 0 auto;
+    transition: transform 0.3s ease;
     position: relative;
     cursor: pointer;
   }
 
   .pais-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   }
 
   .bandeira {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 8px;
-    transition: transform 0.3s ease;
-  }
-
-  .pais-card:hover .bandeira {
-    transform: scale(1.1);
   }
 
   .pais-nome {
-    font-weight: bold;
+    font-size: 1rem;
     margin-top: 8px;
     color: #0077b6;
-    font-size: 1.05rem;
+    font-weight: bold;
   }
 
-  /* Tooltip */
+  /* TOOLTIP */
   .tooltip {
     visibility: hidden;
     opacity: 0;
@@ -156,14 +160,10 @@
     bottom: 110%;
     left: 50%;
     transform: translateX(-50%);
-    white-space: nowrap;
-    transition: opacity 0.3s;
+    white-space: normal;
+    max-width: 160px;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
     z-index: 10;
-  }
-
-  .pais-card:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
   }
 
   .tooltip::after {
@@ -177,6 +177,18 @@
     border-color: #0088cc transparent transparent transparent;
   }
 
+  /* Hover (desktop) */
+  .pais-card:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Click (mobile) */
+  .pais-card.show .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+
   /* FOOTER */
   footer {
     background: #0088cc;
@@ -184,25 +196,48 @@
     text-align: center;
     padding: 8px 0;
     font-size: 0.9rem;
-    flex: 0 0 auto;
   }
-  
-  .btn-voltar {
-      margin: 10px auto;
-	  width: 90px;
-      background-color: #2a7ae2;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.9em;
-      cursor: pointer;
-      transition: background-color 0.3s;
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
     }
 
-    .btn-voltar:hover {
-      background-color: #1d5cb8;
+    .logos img {
+      height: 30px;
     }
+
+    h1 {
+      font-size: 1.1rem;
+    }
+
+    .info p {
+      font-size: 0.8rem;
+    }
+
+    .professores {
+      text-align: center;
+      min-width: unset;
+      padding: 0.5rem 0.7rem;
+    }
+
+    .pais-card {
+      width: 105px;
+      padding: 0.8rem;
+    }
+
+    .bandeira {
+      width: 70px;
+      height: 70px;
+    }
+
+    .pais-nome {
+      font-size: 0.9rem;
+    }
+  }
 </style>
 </head>
 
@@ -215,8 +250,8 @@
     </div>
     <h1>Projeto Integrado: Intercâmbio e Globalização</h1>
     <p>
-      Este site foi desenvolvido como parte de um projeto integrado entre o curso técnico do <strong>SENAI</strong> e as aulas de <strong>Inglês</strong>.  
-      O objetivo é explorar diferentes países, suas culturas e oportunidades de intercâmbio, unindo tecnologia, criatividade e aprendizado através da <strong>programação</strong>.
+      Este site foi desenvolvido como parte de um projeto integrado entre o curso técnico do <strong>SENAI</strong> 
+      e as aulas de <strong>Inglês</strong>, explorando diferentes países, culturas e oportunidades de intercâmbio.
     </p>
   </div>
 
@@ -230,12 +265,15 @@
 
 <main>
   <button class="btn-voltar" onclick="window.location.href='index.html'">Voltar</button>
+
   <h2>Países Pesquisados</h2>
+
   <div class="paises-container">
+
     <div class="pais-card">
       <img src="images/bandeira-da-alemanha.jpg" class="bandeira" alt="Alemanha">
       <p class="pais-nome">Alemanha</p>
-      <span class="tooltip">Ana Clara, Anny, Henrique, <br> Luis Felipe e Maria Luiza</span>
+      <span class="tooltip">Ana Clara, Anny, Henrique, Luis Felipe e Maria Luiza</span>
     </div>
 
     <div class="pais-card">
@@ -273,12 +311,32 @@
       <p class="pais-nome">Reino Unido</p>
       <span class="tooltip">Clara, Isabella e Isabelly</span>
     </div>
+
   </div>
 </main>
 
 <footer>
   <p>© 2025 - Projeto Intercâmbio e Programação | SENAI</p>
 </footer>
+
+<!-- SCRIPT — Tooltip funcional no mobile -->
+<script>
+  document.querySelectorAll('.pais-card').forEach(card => {
+    card.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+      this.classList.toggle('show');
+
+      // Fecha os outros
+      document.querySelectorAll('.pais-card').forEach(c => {
+        if (c !== this) c.classList.remove('show');
+      });
+    });
+  });
+
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.pais-card.show').forEach(c => c.classList.remove('show'));
+  });
+</script>
 
 </body>
 </html>
