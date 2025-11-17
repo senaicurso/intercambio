@@ -5,276 +5,333 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>França - Intercâmbio e Globalização</title>
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
     <style>
         * {
-            box-sizing: border-box;
+            box-sizing: border-box
         }
 
         body {
-            margin: 0;
             background: linear-gradient(135deg, #00078e 15%, #fff 50%, #900000 100%);
-            font-family: Arial, sans-serif;
         }
 
-        /* HEADER */
-        header {
-            text-align: center;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        nav a {
-            color: #000;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        /* BOTÕES FLUTUANTES */
-        #btnMapa,
-        #btnVoltarTopo,
-        #btnChat {
-            position: fixed;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            z-index: 999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            font-size: 26px;
-        }
-
+        /* Botão flutuante */
         #btnMapa {
+            position: fixed;
             bottom: 25px;
-            left: 20px;
+            left: 25px;
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
             background: linear-gradient(145deg, #910000, #b60000);
-        }
-
-        #btnChat {
-            bottom: 90px;
-            left: 20px;
-            background: linear-gradient(145deg, #757575, #1a1818);
-        }
-
-        #btnVoltarTopo {
-            bottom: 25px;
-            right: 20px;
-            background: linear-gradient(145deg, #003f91, #00266b);
-            opacity: 0;
-            pointer-events: none;
-            transform: scale(0.8);
-            transition: 0.3s;
-        }
-
-        /* CONTAINER PRINCIPAL */
-        .container {
-            max-width: 950px;
-            margin: 20px auto;
-            background: rgba(255, 255, 255, 0.93);
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-
-        /* SLIDES */
-        .slideshow-container {
-            width: 100%;
-            max-width: 600px;
-            margin: auto;
-            position: relative;
-        }
-
-        .slides {
-            width: 100%;
-            border-radius: 15px;
-        }
-
-        .mySlides {
-            display: none;
-        }
-
-        .prev,
-        .next {
+            color: white;
+            font-size: 24px;
             cursor: pointer;
-            position: absolute;
-            top: 50%;
-            padding: 12px;
-            color: #fff;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s;
-            user-select: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 998;
         }
 
-        .prev {
-            left: 0;
+        #btnMapa:hover {
+            transform: scale(1.1);
+            background: linear-gradient(145deg, #cf0000, #7a0000);
         }
 
-        .next {
-            right: 0;
-        }
-
-        /* IMAGENS DAS COMIDAS */
-        .comidas {
-            width: 200px;
-            height: auto;
-            border-radius: 10px;
-            margin: 10px;
-        }
-
-        .food-flex {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        /* MODAL MAPA */
-        .modal,
-        .modalChat {
+        /* Modal mapa*/
+        .modal {
             display: none;
             position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.55);
-            z-index: 9999;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
         }
 
+        /* Conteúdo do modal */
         .modal-content {
-            background: #fff;
+            background-color: #fff;
             margin: 8% auto;
-            width: 90%;
-            max-width: 600px;
             padding: 20px;
             border-radius: 12px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
             text-align: center;
         }
 
-        .fechar,
-        .fecharChat {
+        /* Botão de fechar */
+        .fechar {
+            color: #333;
             float: right;
-            cursor: pointer;
             font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+
         }
 
-        /* CHAT */
+        #btnChat {
+            position: absolute;
+            top: 140px;
+            left: 25px;
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #757575, #1a1818);
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 998;
+        }
+
+        /* Modal mapa*/
+        .modalChat {
+            display: none;
+            position: absolute;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            /* background-color: rgba(0, 0, 0, 0.6); */
+        }
+
         .modalChat-content {
-            width: 90%;
-            max-width: 350px;
-            height: 80%;
-            max-height: 520px;
-            background: #fff;
-            margin: auto;
-            position: relative;
-            top: 10%;
-            border-radius: 10px;
+            background-color: #fff;
+            margin: 8% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 350px;
+            height: 500px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            position: fixed;
+            /* permite mover */
+            top: 100px;
+            left: 100px;
+            cursor: grab;
+        }
+
+        .header-chat {
+            background: linear-gradient(145deg, #007bff, #004aad);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            user-select: none;
+            cursor: grab;
         }
 
         .mensagens {
             flex: 1;
             padding: 15px;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+            max-height: 190px;
+            gap: 10px;
+            /* área fixa para mensagens */
         }
 
         .opcoes {
-            max-height: 200px;
-            overflow-y: auto;
+            border-top: 1px solid #ddd;
             padding: 10px;
             display: flex;
             flex-direction: column;
             gap: 8px;
+            justify-content: flex-start;
+            align-items: center;
+            max-height: 190px;
+            /* limite da área das perguntas */
+            overflow-y: auto;
+            /* adiciona rolagem independente */
         }
 
         .opcao {
-            padding: 10px;
-            border-radius: 10px;
-            border: none;
-            font-size: 14px;
             background: linear-gradient(145deg, #007bff, #004aad);
-            color: #fff;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 8px 12px;
             cursor: pointer;
-        }
-
-        .mensagem {
-            padding: 10px;
-            margin-bottom: 8px;
-            border-radius: 10px;
-            max-width: 80%;
-        }
-
-        .bot {
-            background: #e5e5e5;
-        }
-
-        .user {
-            background: #007bff;
-            color: #fff;
-            margin-left: auto;
-        }
-
-        /* FOOTER */
-        footer {
+            font-size: 13px;
+            width: 100%;
             text-align: center;
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        .opcao:hover {
+            transform: scale(1.05);
+            background: linear-gradient(145deg, #0057c2, #003a88);
+        }
+
+
+        .mensagem.user {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            align-self: flex-end;
+            border-radius: 4%;
+        }
+
+        .mensagem.bot {
+            padding: 10px;
+            background: #e5e5e5;
+            align-self: flex-start;
+            border-radius: 4%;
+        }
+
+
+        /* Botão de fechar */
+        .fecharChat {
+            color: #333;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+            background: linear-gradient(19deg, #007bff, #004aad);
+        }
+
+
+
+        #btnVoltarTopo {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(145deg, #003f91, #00266b);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+            z-index: 998;
+        }
+
+        #btnVoltarTopo:hover {
+            transform: scale(1.15);
+            background: linear-gradient(145deg, #004ccf, #00347a);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-bottom: 80px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            margin-top: 30px;
+            position: relative;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.903);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(15, 15, 15, 0.499);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* MEDIA QUERIES – RESPONSIVIDADE GERAL */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 22px;
-            }
-
-            .container {
-                margin: 10px;
-                padding: 15px;
-            }
-
-            .prev,
-            .next {
-                font-size: 14px;
-                padding: 10px;
-            }
-
-            #btnChat,
-            #btnMapa {
-                width: 50px;
-                height: 50px;
-            }
-
-            #btnChat {
-                bottom: 80px;
-            }
+        .slides {
+            max-height: 250px;
+            min-height: 360px;
+            border-radius: 2%;
         }
 
-        @media (max-width: 480px) {
+        /* Container de Slides */
+       		
+		.slideshow-container {
+           width: 100%;
+           max-width: 400px;
+           position: relative;
+           margin: auto;
+        }
 
-            .comidas {
-                width: 150px;
+		
+
+        /* Esconde a imagens */
+        .mySlides {
+            display: none;
+        }
+
+        /* Botão de passar e voltar */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Posiciona os botões de proximo e anterior */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        li {
+            right: 0;
+        }
+
+        .comidas {
+            margin-top: 20px;
+            width: 205px;
+            height: 175px;
+            border-radius: 6%;
+        }
+
+        /* Animação */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
             }
 
-            header img {
-                width: 22px;
-            }
-
-            nav ul {
-                flex-direction: column;
+            to {
+                opacity: 1
             }
         }
     </style>
@@ -282,17 +339,15 @@
 
 <body>
 
-    <!-- BOTÕES -->
-    <button id="btnChat"><i class="material-icons">message</i></button>
-    <button id="btnMapa"><i class="material-icons">location_on</i></button>
-    <button id="btnVoltarTopo">
-        <i class="material-icons">arrow_upward</i>
-    </button>
 
-    <!-- HEADER -->
     <header>
+        <!-- Botão flutuante para chat bot -->
+        <button id="btnChat" title="Chat bot">
+            <i class="material-icons" style="padding-top: 7px;">message</i>
+        </button>
         <h1>França</h1>
-        <img src="https://flagcdn.com/w40/fr.png" alt="França">
+        <img src="https://flagcdn.com/w40/fr.png" alt="Bandeira da França"
+            style="width: 30px; height: 20px; vertical-align: middle;">
         <nav>
             <ul>
                 <li><a href="index.html">Início</a></li>
@@ -301,157 +356,243 @@
         </nav>
     </header>
 
-    <!-- MODAL MAPA -->
+    <!-- Botão flutuante para localização -->
+    <button id="btnMapa" title="Ver mapa">
+        <i class="material-icons" style="padding-top: 7px;">location_on</i>
+    </button>
+
+    <!-- Modal localização -->
     <div id="modalMapa" class="modal">
         <div class="modal-content">
             <span class="fechar">&times;</span>
             <h2>Localização</h2>
-            <iframe src="https://www.google.com/maps/embed?...(seu mapa aqui)..."
-                width="100%" height="350" style="border:0;" loading="lazy"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10686144.218367325!2d-8.000197982645135!3d45.61864700911236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a02933785731%3A0x6bfd3f96c747d9f7!2zRnJhbsOnYQ!5e1!3m2!1spt-BR!2sbr!4v1761748688167!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 
-    <!-- MODAL CHAT -->
+
+
+    <!-- Modal Chat Bot -->
     <div id="modalChat" class="modalChat">
         <div class="modalChat-content">
             <span class="fecharChat">&times;</span>
+            <div class="container-chat">
+                <div class="header-chat">
+                    <img src="" alt="">
 
-            <div class="header-chat" style="text-align:center; padding:10px; background:#0057c2; color:#fff;">
-                <h3>BonjourBot</h3>
-            </div>
+                    <h2>Chat Bot</h2>
+                </div>
 
-            <div id="mensagens" class="mensagens">
-                <div class="mensagem bot">
-                    Olá! 👋 Escolha uma pergunta para saber mais sobre intercâmbio na França!
+                <div class="mensagens" id="mensagens">
+                    <div class="mensagem bot">Olá! 👋 Eu sou BonjourBot escolha uma pergunta para eu te auxiliar a fazer
+                        o seu intercâmbio para a França! ✈</div>
+                </div>
+
+                <div class="opcoes" id="opcoes">
                 </div>
             </div>
-
-            <div id="opcoes" class="opcoes"></div>
         </div>
     </div>
 
-    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- Botão de voltar ao topo -->
+    <button id="btnVoltarTopo" title="Voltar ao topo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="white" stroke-width="3"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 15l-6-6-6 6" />
+        </svg>
+    </button>
+
     <div class="container">
 
         <section class="country-info">
-            <h2>Bem-vindo(a) à França</h2>
+            <h2>Bem-vindo(a) a França</h2>
 
-            <!-- SLIDES -->
             <div class="slideshow-container">
+
                 <div class="mySlides fade">
-                    <img src="images/paisagem_2.png" class="slides">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/paisagem_3.png" class="slides">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/paisagem_4.png" class="slides">
+                    <img src="images/paisagem_2.png" style="width:100%" class="slides">
                 </div>
 
-                <div class="prev" onclick="plusSlides(-1)">&#10094;</div>
-                <div class="next" onclick="plusSlides(1)">&#10095;</div>
+                <div class="mySlides fade">
+                    <img src="images/paisagem_3.png" style="width:100%" class="slides">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/paisagem_4.png" style="width:100%" class="slides">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/arte_1.png" style="width:100%" class="slides">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/comida_1.png" style="width:100%" class="slides">
+                </div>
+
+                <div class="mySlides fade">
+                    <img src="images/comida_2.png" style="width:100%" class="slides">
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
             </div>
+            <br>
 
-            <p style="padding:20px;">
-                A França é conhecida por sua rica cultura, arte, moda e gastronomia...
+            <p style="padding-bottom: 40px;">A França é conhecida por sua rica cultura, arte, moda e gastronomia.<br> O
+                país
+                é
+                berço de grandes artistas e pensadores, e Paris é considerada o centro cultural e a capital mundial <br>
+                da
+                moda.<br> <br>O idioma oficial é o francês, símbolo de orgulho nacional e uma das línguas mais faladas
+                no
+                mundo.
             </p>
 
             <hr>
 
-            <h2>Culinária 🥐</h2>
 
-            <div class="food-flex">
-                <img src="images/creme brule.png" class="comidas">
-                <img src="images/croaisant.png" class="comidas">
-                <img src="images/macaron.png" class="comidas">
+            <h2 style="padding-top: 40px;">Cultura e Arte 🎨</h2>
+
+            <p style="padding-bottom: 40px; margin: 0, 20px;">A cultura francesa é uma das mais ricas e influentes do
+                mundo, marcada pela
+                valorização da arte, da língua, da gastronomia e do modo de viver.
+                Ela reflete séculos de história, tradição e pensamento, mas também uma constante busca por
+                modernidade e inovação. Os franceses têm um profundo orgulho de sua herança cultural e enxergam a
+                cultura
+                como parte essencial da identidade nacional.</p>
+            <hr>
+
+            <h2 style="padding-top: 40px;"> Herança Histórica 🕰️</h2>
+            <p style="padding-bottom: 15px;">A herança histórica da França é profunda e complexa, marcada por momentos
+                de grandeza, revoluções,
+                conquistas e transformações que moldaram não só o país, mas também o mundo ocidental. A França tem uma
+                história
+                que atravessa mais de dois mil anos, desde os povos gauleses da Antiguidade até a formação de uma das
+                nações mais
+                influentes da Europa moderna. Essa trajetória deixou marcas visíveis em sua arquitetura, instituições,
+                valores e na identidade de seu povo. A França possui uma rica herança histórica e foi berço de
+                importantes
+                movimentos culturais e
+                intelectuais,
+                como:
+            </p>
+            <div style="display: flex; justify-content: center; padding-bottom: 20px;">
+                <ul style="text-align: left; list-style-position: outside;">
+                    <li>Iluminismo</li>
+                    <li>Romantismo</li>
+                    <li>Existencialismo</li>
+                </ul>
             </div>
+            <br>
+
+            <hr>
+
+            <h2 style="padding-top: 40px;">Culinária 🥐</h2>
+            <p>A culinária francesa é uma das mais influentes e respeitadas do mundo, conhecida por sua sofisticação,
+                <br>
+                técnicas refinadas e valorização dos ingredientes de qualidade. Pratos como o coq au vin (frango cozido
+                <br>
+                no vinho tinto), o ratatouille (ensopado de legumes típico do sul da França) e o soufflé exemplificam
+                essa <br>
+                sofisticação e cuidado nos preparos. <br> <br>
+
+                Ela combina tradição, com receitas clássicas como o croissant e a baguete, criatividade, presente na
+                <br>
+                alta gastronomia de chefs renomados como Paul Bocuse e Joël Robuchon, e estética, observada na <br>
+                apresentação elegante de pratos e sobremesas como o crème brûlée e o macaron. <br> <br>
+
+                Por tudo isso, a culinária francesa é considerada um verdadeiro pilar da gastronomia ocidental, <br>
+                servindo de base para escolas de cozinha no mundo inteiro, como o famoso Le Cordon Bleu. <br> <br>
+            </p>
+
+            <img src="images/creme brule.png" class="comidas">
+            <img src="images/croaisant.png" class="comidas">
+            <img src="images/macaron.png" class="comidas">
 
         </section>
     </div>
+
+
 
     <footer>
         <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
     </footer>
 
-    <!-- JS (SLIDES, MODAIS, CHAT, BOTÃO TOPO) -->
     <script>
-        /* SCRIPTS IGUAIS AO SEU – apenas reorganizados */
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-
-            if (n > slides.length) slideIndex = 1;
-            if (n < 1) slideIndex = slides.length;
-
-            for (i = 0; i < slides.length; i++)
-                slides[i].style.display = "none";
-
-            slides[slideIndex - 1].style.display = "block";
-        }
-
-        /* MODAL MAPA */
         const btnMapa = document.getElementById("btnMapa");
-        const modalMapa = document.getElementById("modalMapa");
+        const modal = document.getElementById("modalMapa");
         const fechar = document.querySelector(".fechar");
 
-        btnMapa.onclick = () => modalMapa.style.display = "block";
-        fechar.onclick = () => modalMapa.style.display = "none";
+        btnMapa.onclick = function () {
+            modal.style.display = "block";
+        }
 
-        window.onclick = (e) => {
-            if (e.target === modalMapa) modalMapa.style.display = "none";
-            if (e.target === modalChat) modalChat.style.display = "none";
-        };
+        fechar.onclick = function () {
+            modal.style.display = "none";
+        }
 
-        /* BOTÃO VOLTAR AO TOPO */
-        const btnTopo = document.getElementById("btnVoltarTopo");
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 500) {
-                btnTopo.style.opacity = "1";
-                btnTopo.style.transform = "scale(1)";
-                btnTopo.style.pointerEvents = "auto";
-            } else {
-                btnTopo.style.opacity = "0";
-                btnTopo.style.pointerEvents = "none";
+        // Fecha o modal se clicar fora dele
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
             }
-        });
-        btnTopo.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+        }
 
-        /* CHAT */
+        // Chat bot
         const btnChat = document.getElementById("btnChat");
         const modalChat = document.getElementById("modalChat");
         const fecharChat = document.querySelector(".fecharChat");
 
-        btnChat.onclick = () => modalChat.style.display = "block";
-        fecharChat.onclick = () => modalChat.style.display = "none";
+        btnChat.onclick = () => (modalChat.style.display = "block");
+        fecharChat.onclick = () => (modalChat.style.display = "none");
 
+        // Chat movimentável
+        const chatBox = document.querySelector(".modalChat-content");
+        const header = document.querySelector(".header-chat");
+        let offsetX, offsetY, isDragging = false;
+
+        header.addEventListener("mousedown", (e) => {
+            isDragging = true;
+            offsetX = e.clientX - chatBox.offsetLeft;
+            offsetY = e.clientY - chatBox.offsetTop;
+            chatBox.style.cursor = "grabbing";
+        });
+        document.addEventListener("mouseup", () => {
+            isDragging = false;
+            chatBox.style.cursor = "grab";
+        });
+        document.addEventListener("mousemove", (e) => {
+            if (isDragging) {
+                chatBox.style.left = `${e.clientX - offsetX}px`;
+                chatBox.style.top = `${e.clientY - offsetY}px`;
+            }
+        });
+
+        // Sistema de mensagens
         const mensagens = document.getElementById("mensagens");
         const opcoesDiv = document.getElementById("opcoes");
 
         const perguntas = {
-            "💰 Quanto custa o intercâmbio?": "Os valores variam conforme cidade e duração...",
-            "📍 Quais cidades posso escolher?": "Paris, Lyon, Nice, Toulouse...",
-            "⏳ Quanto tempo dura?": "De 2 semanas a 1 ano.",
-            "🧾 Preciso de visto?": "Sim, para estadias acima de 90 dias.",
-            "🗣 Preciso falar francês?": "Não! Existem cursos para iniciantes.",
-            "🎓 Posso trabalhar lá?": "Sim, com visto de estudante."
+            "💰 Quais são os preços do intercâmbio?": "Os valores variam conforme a cidade, o tipo de curso e a duração. Temos opções a partir de R$ 8.000 com tudo incluso (curso, hospedagem e suporte).",
+            "📍 Quais cidades na França posso escolher?": "As mais procuradas são Paris, Lyon, Montpellier, Nice e Toulouse, mas temos parcerias com escolas em outras regiões também.",
+            "⏳ Quanto tempo dura o intercâmbio?": "Pode durar de 2 semanas até 1 ano, dependendo do programa que você escolher.",
+            "🧾 Preciso de visto para estudar na França?": "Sim, para cursos com duração superior a 90 dias é necessário o visto de estudante, e nós te ajudamos com toda a documentação.",
+            "🗣️ Preciso saber falar francês?": "Não! Temos cursos de francês para iniciantes e escolas que aceitam alunos do nível básico.",
+            "🎓 Posso trabalhar enquanto estudo?": "Sim! Com o visto de estudante, você pode trabalhar até 20 horas por semana na França."
         };
 
-        Object.keys(perguntas).forEach(p => {
+        Object.keys(perguntas).forEach((pergunta) => {
             const btn = document.createElement("button");
             btn.classList.add("opcao");
-            btn.textContent = p;
-            btn.onclick = () => enviarPergunta(p);
+            btn.textContent = pergunta;
+            btn.onclick = () => enviarPergunta(pergunta);
             opcoesDiv.appendChild(btn);
         });
 
-        function addMsg(text, sender) {
+        function addMessage(text, sender) {
             const div = document.createElement("div");
             div.classList.add("mensagem", sender);
             div.textContent = text;
@@ -459,12 +600,68 @@
             mensagens.scrollTop = mensagens.scrollHeight;
         }
 
-        function enviarPergunta(p) {
-            addMsg(p, "user");
-            setTimeout(() => addMsg(perguntas[p], "bot"), 700);
+        function enviarPergunta(pergunta) {
+            addMessage(pergunta, "user");
+            setTimeout(() => {
+                const resposta = perguntas[pergunta] || "Desculpe, não entendi 😅";
+                addMessage(resposta, "bot");
+            }, 800);
         }
-    </script>
 
+
+        const botao = document.getElementById("btnVoltarTopo");
+
+        window.addEventListener("scroll", () => {
+            const scrollTop = window.scrollY;
+            const alturaPagina = document.body.offsetHeight - window.innerHeight;
+
+            // aparece quando chega perto do fim
+            if (scrollTop > alturaPagina - 200) {
+                botao.style.opacity = "1";
+                botao.style.transform = "scale(1)";
+                botao.style.pointerEvents = "auto";
+            } else {
+                botao.style.opacity = "0";
+                botao.style.transform = "scale(0.8)";
+                botao.style.pointerEvents = "none";
+            }
+        });
+
+        botao.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Função de passr slides
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+
+    </script>
 </body>
 
 </html>
