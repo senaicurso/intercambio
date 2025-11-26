@@ -445,36 +445,67 @@ footer {
   <footer>
     <p>© 2025 Intercâmbio e Globalização - Projeto Escolar</p>
   </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // lista explícita das caixas que pertencem às imagens (evita confundir com as .info-box do info-container)
+  const countryIds = [
+    "info-cultura",
+    "info-idioma",
+    "info-tradicoes",
+    "info-curiosidades",
+    "info-culinária"
+  ];
 
- <script>
-  function showInfo(id) {
-    // Esconde todas as infos
-    const infos = document.querySelectorAll('.info-box');
-    infos.forEach(box => box.style.display = 'none');
-
-    // Mostra só a info do id clicado
-    const info = document.getElementById(id);
-    if (info) {
-      info.style.display = 'block';
-      // Opcional: rola a tela até o conteúdo
-      info.scrollIntoView({behavior: "smooth"});
-    }
+  function hideCountryBoxes() {
+    countryIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = "none";
+    });
   }
-  
+
+  // Função global usada no onclick das imagens (mantém sua chamada existente)
+  window.showInfo = function(id) {
+    // fecha a área de intercâmbio (se estiver aberta)
+    const container = document.getElementById("info-container");
+    if (container) {
+      container.classList.add("hidden");
+    }
+
+    // fecha todas as caixas de país e abre só a desejada
+    hideCountryBoxes();
+    const target = document.getElementById(id);
+    if (target) {
+      target.style.display = "block";
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // Configura o botão "Leia mais"
   const btn = document.getElementById("btn-intercambio");
   const info = document.getElementById("info-container");
 
-  btn.addEventListener("click", () => {
-    info.classList.toggle("hidden");
+  if (btn && info) {
+    btn.addEventListener("click", function () {
+      // ao abrir "Leia mais", fecha as infos das imagens
+      hideCountryBoxes();
 
-    // Alterna o texto do botão
-    if (info.classList.contains("hidden")) {
-      btn.textContent = "Leia mais sobre";
-    } else {
-      btn.textContent = "Ocultar informações";
-    }
-  });
+      // alterna exibir/ocultar
+      info.classList.toggle("hidden");
+
+      // alterna o texto do botão (se quiser manter)
+      if (info.classList.contains("hidden")) {
+        btn.textContent = "Leia mais sobre";
+      } else {
+        btn.textContent = "Ocultar informações";
+        // rola para o container quando abrir
+        info.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+});
 </script>
-</script>
+
+ 
+
 </body>
 </html>
