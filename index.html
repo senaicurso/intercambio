@@ -7,23 +7,32 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- TARJA LATERAL DO QR CODE -->
+  <div class="qrcode-sidebar">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://senaicurso.github.io/intercambio" 
+         alt="QR Code Intercâmbio">
+  </div>
+
   <header>
-    <h1>Intercâmbio e Globalização</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Início/Home</a></li>
-        <li><a href="paises.html">Países/Countries</a></li>
-        <li><a href="sobre.html">Sobre/About</a></li>
-      </ul>
-    </nav>
+    <div class="header-left">
+      <h1>Intercâmbio e Globalização</h1>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Início/Home</a></li>
+          <li><a href="paises.html">Países/Countries</a></li>
+          <li><a href="sobre.html">Sobre/About</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   
   <section class="intro">
     <h2>Descubra a cultura de diferentes países</h2>
-	<h4>Discover the culture of different countries</h4>
+    <h4>Discover the culture of different countries</h4>
   </section>
 
-  <!-- Carrossel simples -->
   <div class="carousel">
     <div class="slides">
       <img src="carrossel/img1.jpg" alt="Cultura Mundial">
@@ -34,7 +43,7 @@
 
   <section class="intro2">
     <p>Este projeto tem como objetivo ampliar o conhecimento sobre culturas ao redor do mundo, incentivando a pesquisa, o aprendizado de línguas e o uso de recursos digitais.</p>
-    <p><b>This project aims to expand knowledge about cultures around the world, encouraging research, language learning, and the use of digital resources.<b></p>
+    <p><b>This project aims to expand knowledge about cultures around the world, encouraging research, language learning, and the use of digital resources.</b></p>
   </section>
 
   <footer>
@@ -50,5 +59,6 @@
       slides[index].style.display = 'block';
     }, 3000);
   </script>
+
 </body>
 </html>
